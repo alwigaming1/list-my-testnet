@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Crypto Testnet Hub | Kelola Testnet Pribadi</title>
   <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
@@ -13,116 +13,202 @@
   <!-- HEADER -->
   <header class="main-header">
     <div class="logo">
-      <i class="fas fa-satellite-dish"></i> TesNetID
+      <i class="fas fa-rocket"></i> TesNetID By Alwi
     </div>
     <nav class="nav-menu">
       <a href="#" class="active" data-target="home">Home</a>
       <a href="#" data-target="dashboard">Dashboard</a>
       <a href="#" data-target="tools">Tools</a>
-      <a href="#" id="auth-nav-link" class="cta-button" data-target="auth">Login / Register</a>
+      <a href="#" id="auth-nav-link" class="cta-button" data-target="auth">
+        <i class="fas fa-sign-in-alt"></i> Login / Register
+      </a>
     </nav>
   </header>
 
   <main id="app-content">
+    <!-- Tombol Dark/Light Mode di pojok kanan atas -->
+    <div class="theme-toggle" id="themeToggle">
+      <input type="checkbox" id="toggle" class="toggle-checkbox">
+      <label for="toggle" class="toggle-label">
+        <span class="toggle-icon moon"><i class="fas fa-moon"></i></span>
+        <span class="toggle-icon sun"><i class="fas fa-sun"></i></span>
+        <span class="toggle-ball"></span>
+      </label>
+    </div>
 
-    <!-- HOME -->
+    <!-- HOME SECTION - ENHANCED -->
     <section id="home-section" class="content-section active">
       <div class="hero-section">
-        <h1>Buat <strong>List Testnetmu Sendiri</strong> untuk Garapan Maksimal</h1>
-        <p>Atur, pantau, dan maksimalkan potensi airdrop dengan daftar testnet yang dikustomisasi sesuai strategi Anda.</p>
-        <a href="#" class="primary-btn" data-target="dashboard">Mulai Kelola Daftar Anda</a>
+        <!-- Floating Elements -->
+        <div class="floating-elements">
+          <div class="floating-element"></div>
+          <div class="floating-element"></div>
+          <div class="floating-element"></div>
+        </div>
+        
+        <div class="hero-content">
+          <h1>Buat <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">List Testnetmu</span> Sendiri untuk Garapan Maksimal</h1>
+          <p>Atur, pantau, dan maksimalkan potensi airdrop dengan daftar testnet yang dikustomisasi sesuai strategi Anda.</p>
+          <div class="hero-cta">
+            <button class="hero-btn primary" data-target="dashboard">
+              <i class="fas fa-play"></i> Mulai Sekarang
+            </button>
+         
+          </div>
+        </div>
       </div>
-      <div class="info-cards">
-        <div class="card"><i class="fas fa-list-check"></i><h3>Kustomisasi Prioritas</h3><p>Atur proyek berdasarkan potensi, kesulitan, dan alokasi waktu Anda.</p></div>
-        <div class="card"><i class="fas fa-lock-open"></i><h3>Kunci Potensi Airdrop</h3><p>Jangan lewatkan tugas penting dengan sistem pemantauan proyek pribadi.</p></div>
-        <div class="card"><i class="fas fa-chart-line"></i><h3>Pantauan Progress</h3><p>Tandai status garapan Anda (To Do, In Progress, Done) secara real-time.</p></div>
+
+      <!-- ENHANCED INFO CARDS -->
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="icon">
+            <i class="fas fa-list-check"></i>
+          </div>
+          <h3>Kustomisasi Prioritas</h3>
+          <p>Atur proyek berdasarkan potensi, kesulitan, dan alokasi waktu Anda dengan sistem prioritas yang fleksibel.</p>
+        </div>
+        
+        <div class="info-card">
+          <div class="icon">
+            <i class="fas fa-lock-open"></i>
+          </div>
+          <h3>Kunci Potensi Airdrop</h3>
+          <p>Jangan lewatkan tugas penting dengan sistem pemantauan proyek pribadi yang real-time.</p>
+        </div>
+        
+        <div class="info-card">
+          <div class="icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Pantau Progress Real-time</h3>
+          <p>Tandai status garapan Anda (To Do, In Progress, Done) secara real-time dengan notifikasi.</p>
+        </div>
       </div>
+
+    
     </section>
 
-    <!-- TOOLS PAGE -->
+    <!-- TOOLS PAGE - ENHANCED -->
     <section id="tools-section" class="content-section">
-      <div class="hero-section" style="padding: 100px 5% 60px; text-align:center;">
-        <h1><i class="fas fa-tools"></i> Tools Pendukung Testnet</h1>
-        <p style="font-size:1.2rem; max-width:800px; margin:20px auto; color:var(--text-muted);">
-          Kumpulan faucet resmi untuk berbagai jaringan testnet. Claim token gratis setiap hari!
-        </p>
+      <div class="hero-section" style="padding: 120px 5% 80px; min-height: 50vh;">
+        <div class="hero-content">
+          <h1><i class="fas fa-tools"></i> Tools Pendukung Testnet</h1>
+          <p style="font-size:1.2rem; max-width:800px; margin:20px auto; color:var(--text-soft);">
+            Kumpulan faucet resmi untuk berbagai jaringan testnet. Claim token gratis setiap hari dan maksimalkan potensi airdrop Anda!
+          </p>
+        </div>
       </div>
 
-      <div class="info-cards" style="max-width:1200px; margin:0 auto; padding:0 5%;">
-        <div class="card">
-          <i class="fas fa-faucet-drip" style="font-size:3rem; color:#00d4ff;"></i>
+      <div class="info-grid" style="padding: 0 5% 100px;">
+        <div class="info-card">
+          <div class="icon" style="background: linear-gradient(135deg, #00d4ff, #0066ff);">
+            <i class="fas fa-faucet-drip"></i>
+          </div>
           <h3>Sepolia (Ethereum)</h3>
-          <p><strong>Alchemy Faucet</strong> – 0.5 ETH/hari</p>
-          <a href="https://sepoliafaucet.com" target="_blank" class="primary-btn" style="margin-top:15px; padding:10px 20px; font-size:0.95rem;">Claim di Alchemy</a>
-          <a href="https://faucet.quicknode.com/ethereum/sepolia" target="_blank" style="display:block; margin-top:8px; color:var(--secondary-color); font-size:0.9rem;">QuickNode Faucet →</a>
+          <p><strong>Alchemy Faucet</strong> – 0.5 ETH/hari dengan limit yang generous untuk testing</p>
+          <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+            <a href="https://sepoliafaucet.com" target="_blank" class="hero-btn primary" style="padding: 12px 24px; font-size: 0.95rem;">
+              <i class="fas fa-external-link-alt"></i> Claim di Alchemy
+            </a>
+            <a href="https://faucet.quicknode.com/ethereum/sepolia" target="_blank" class="hero-btn secondary" style="padding: 12px 24px; font-size: 0.95rem;">
+              <i class="fas fa-bolt"></i> QuickNode Faucet
+            </a>
+          </div>
         </div>
 
-        <div class="card">
-          <i class="fas fa-coins" style="font-size:3rem; color:#f39c12;"></i>
-          <h3>Berachain Testnet</h3>
-          <p><strong>BERA & HONEY</strong> – Claim setiap 24 jam</p>
-          <a href="https://faucet.berachain.com" target="_blank" class="primary-btn" style="margin-top:15px; padding:10px 20px; font-size:0.95rem;">Claim BERA</a>
-        </div>
+    
 
-        <div class="card">
-          <i class="fab fa-btc" style="font-size:3rem; color:#f7931a;"></i>
-          <h3>Taiko Testnet</h3>
-          <p>Claim TAIKO token untuk testnet L2 Ethereum</p>
-          <a href="https://faucet.taiko.xyz" target="_blank" class="primary-btn" style="margin-top:15px; padding:10px 20px; font-size:0.95rem;">Claim Taiko</a>
-        </div>
-
-        <div class="card">
-          <i class="fas fa-cube" style="font-size:3rem; color:#8e44ad;"></i>
+        <div class="info-card">
+          <div class="icon" style="background: linear-gradient(135deg, #8e44ad, #3498db);">
+            <i class="fas fa-cube"></i>
+          </div>
           <h3>Polygon Amoy</h3>
-          <p>Claim MATIC testnet (Amoy = pengganti Mumbai)</p>
-          <a href="https://faucet.polygon.technology" target="_blank" class="primary-btn" style="margin-top:15px; padding:10px 20px; font-size:0.95rem;">Claim Amoy</a>
+          <p>Claim MATIC testnet (Amoy = pengganti Mumbai) untuk jaringan Polygon PoS</p>
+          <a href="https://faucet.polygon.technology" target="_blank" class="hero-btn primary" style="margin-top: 20px; padding: 12px 24px; font-size: 0.95rem;">
+            <i class="fas fa-tint"></i> Claim Amoy
+          </a>
         </div>
 
-        <div class="card">
-          <i class="fas fa-globe" style="font-size:3rem; color:#3498db;"></i>
+        <div class="info-card">
+          <div class="icon" style="background: linear-gradient(135deg, #3498db, #2ecc71);">
+            <i class="fas fa-globe"></i>
+          </div>
           <h3>Base Sepolia</h3>
-          <p>Claim ETH di testnet Base (Coinbase L2)</p>
-          <a href="https://faucet.quicknode.com/base/sepolia" target="_blank" class="primary-btn" style="margin-top:15px; padding:10px 20px; font-size:0.95rem;">Claim Base</a>
+          <p>Claim ETH di testnet Base (Coinbase L2) - jaringan L2 yang sedang berkembang pesat</p>
+          <a href="https://faucet.quicknode.com/base/sepolia" target="_blank" class="hero-btn primary" style="margin-top: 20px; padding: 12px 24px; font-size: 0.95rem;">
+            <i class="fas fa-layer-group"></i> Claim Base
+          </a>
         </div>
 
-        <div class="card">
-          <i class="fas fa-link" style="font-size:3rem; color:#1abc9c;"></i>
-          <h3>Semua Faucet (Daftar Lengkap)</h3>
-          <p>Koleksi 100+ faucet aktif dari berbagai chain</p>
-          <a href="https://faucetlink.to" target="_blank" class="primary-btn" style="margin-top:15px; padding:10px 20px; font-size:0.95rem;">Buka FaucetLink</a>
+        <div class="info-card">
+          <div class="icon" style="background: linear-gradient(135deg, #1abc9c, #16a085);">
+            <i class="fas fa-link"></i>
+          </div>
+          <h3>All-in-One Faucet</h3>
+          <p>Koleksi 100+ faucet aktif dari berbagai chain dalam satu platform terintegrasi</p>
+          <a href="https://faucetlink.to" target="_blank" class="hero-btn primary" style="margin-top: 20px; padding: 12px 24px; font-size: 0.95rem;">
+            <i class="fas fa-star"></i> Buka FaucetLink
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- AUTH -->
+    <!-- AUTH SECTION -->
     <section id="auth-section" class="content-section">
       <div class="auth-container">
+        <!-- Login Box -->
         <div class="auth-box login-box" id="login-box">
           <h2>Selamat Datang Kembali</h2>
           <form id="login-form">
-            <div class="form-group"><label for="log-email">Email</label><input type="email" id="log-email" required placeholder="alamat@email.com"/></div>
-            <div class="form-group"><label for="log-password">Password</label><input type="password" id="log-password" required placeholder="Minimal 8 karakter"/></div>
-            <button type="submit" class="primary-btn">Login</button>
+            <div class="form-group">
+              <label for="log-email">Email</label>
+              <input type="email" id="log-email" required placeholder="alamat@email.com"/>
+            </div>
+            <div class="form-group">
+              <label for="log-password">Password</label>
+              <input type="password" id="log-password" required placeholder="Minimal 8 karakter"/>
+            </div>
+            <button type="submit" class="primary-btn">
+              <i class="fas fa-sign-in-alt"></i> Login
+            </button>
           </form>
-          <p class="switch-auth">Belum punya akun? <a href="#" id="show-register">Register</a></p>
+          <p class="switch-auth">Belum punya akun? <a href="#" id="show-register">Daftar Sekarang</a></p>
         </div>
 
+        <!-- Register Box -->
         <div class="auth-box register-box hidden" id="register-box">
           <h2>Buat Akun Baru</h2>
           <form id="register-form">
-            <div class="form-group"><label for="reg-email">Email</label><input type="email" id="reg-email" required placeholder="alamat@email.com"/></div>
-            <div class="form-group"><label for="reg-password">Password</label><input type="password" id="reg-password" required placeholder="Minimal 8 karakter"/></div>
-            <div class="form-group"><label for="reg-confirm">Konfirmasi Password</label><input type="password" id="reg-confirm" required placeholder="Ulangi password"/></div>
-            <button type="submit" class="primary-btn">Register</button>
+            <div class="form-group">
+              <label for="reg-email">Email</label>
+              <input type="email" id="reg-email" required placeholder="alamat@email.com"/>
+            </div>
+            <div class="form-group">
+              <label for="reg-password">Password</label>
+              <input type="password" id="reg-password" required placeholder="Minimal 8 karakter"/>
+            </div>
+            <div class="form-group">
+              <label for="reg-confirm">Konfirmasi Password</label>
+              <input type="password" id="reg-confirm" required placeholder="Ulangi password"/>
+            </div>
+            <button type="submit" class="primary-btn">
+              <i class="fas fa-user-plus"></i> Register
+            </button>
           </form>
-          <p class="switch-auth">Sudah punya akun? <a href="#" id="show-login">Login</a></p>
+          <p class="switch-auth">Sudah punya akun? <a href="#" id="show-login">Login di sini</a></p>
         </div>
       </div>
     </section>
 
-    <!-- DASHBOARD -->
+    <!-- DASHBOARD SECTION -->
     <section id="dashboard-section" class="content-section">
-      <h2 class="dashboard-title"><i class="fas fa-tasks"></i> DASHBOARD TESTNET & AIRDROP TRACKER</h2>
+      <div class="dashboard-hero">
+        <h2 class="dashboard-title">
+          <i class="fas fa-tasks"></i> DASHBOARD TESTNET & AIRDROP TRACKER
+        </h2>
+      
+      </div>
+
       <div class="search-filter-bar">
         <input type="text" id="searchInput" placeholder="Cari proyek..." class="search-input"/>
         <select id="filterStatus" class="filter-select">
@@ -136,12 +222,19 @@
           <option value="Tier 2">Tier 2</option>
           <option value="Tier 3">Tier 3</option>
         </select>
-        <button id="addProjectBtn" class="primary-btn">Tambah Proyek Baru</button>
+        <button id="addProjectBtn" class="primary-btn">
+          <i class="fas fa-plus"></i> Tambah Proyek Baru
+        </button>
       </div>
 
       <div class="testnet-list">
         <div class="testnet-card header-row">
-          <span>NAMA PROYEK</span><span>LINK</span><span>TIER</span><span>TUGAS UTAMA</span><span>SELESAI</span><span>AKSI</span>
+          <span>NAMA PROYEK</span>
+          <span>LINK</span>
+          <span>TIER</span>
+          <span>TUGAS UTAMA</span>
+          <span>SELESAI</span>
+          <span>AKSI</span>
         </div>
         <div id="testnet-list-container">
           <p style="text-align:center;padding:60px;color:var(--text-muted);">Memuat data...</p>
@@ -151,32 +244,151 @@
 
   </main>
 
-  <!-- MODAL TAMBAH & EDIT (tetap sama) -->
-  <div id="add-modal" class="modal"><div class="modal-content"><span class="close-btn">×</span><h2>Tambah Proyek Baru</h2><form id="addForm">
-    <div class="form-group"><label>Nama Proyek</label><input type="text" name="name" required/></div>
-    <div class="form-group"><label>Link Dokumentasi</label><input type="url" name="link" required/></div>
-    <div class="form-group"><label>Tier</label><select name="tier" required><option value="Tier 1">Tier 1 (High)</option><option value="Tier 2">Tier 2 (Medium)</option><option value="Tier 3">Tier 3 (Low)</option></select></div>
-    <div class="form-group"><label>Tugas Utama</label><input type="text" name="task" required/></div>
-    <button type="submit" class="primary-btn">Simpan</button>
-  </form></div></div>
+  <!-- MODAL TAMBAH -->
+  <div id="add-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Tambah Proyek Baru</h2>
+      <form id="addForm">
+        <div class="form-group"><label>Nama Proyek</label><input type="text" name="name" required/></div>
+        <div class="form-group"><label>Link Dokumentasi</label><input type="url" name="link" required/></div>
+        <div class="form-group"><label>Tier</label>
+          <select name="tier" required>
+            <option value="Tier 1">Tier 1 (High Priority)</option>
+            <option value="Tier 2">Tier 2 (Medium Priority)</option>
+            <option value="Tier 3">Tier 3 (Low Priority)</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Tugas Utama</label><input type="text" name="task" required/></div>
+        <button type="submit" class="primary-btn">
+          <i class="fas fa-save"></i> Simpan Proyek
+        </button>
+      </form>
+    </div>
+  </div>
 
-  <div id="edit-modal" class="modal"><div class="modal-content"><span class="close-btn">×</span><h2>Edit Proyek</h2><form id="editForm">
-    <input type="hidden" name="id"/>
-    <div class="form-group"><label>Nama Proyek</label><input type="text" name="name" required/></div>
-    <div class="form-group"><label>Link Dokumentasi</label><input type="url" name="link" required/></div>
-    <div class="form-group"><label>Tier</label><select name="tier" required><option value="Tier 1">Tier 1 (High)</option><option value="Tier 2">Tier 2 (Medium)</option><option value="Tier 3">Tier 3 (Low)</option></select></div>
-    <div class="form-group"><label>Tugas Utama</label><input type="text" name="task" required/></div>
-    <button type="submit" class="primary-btn">Update</button>
-    <button type="button" id="deleteBtn" class="secondary-btn" style="background:#c0392b;margin-top:10px;">Hapus Proyek</button>
-  </form></div></div>
+  <!-- MODAL EDIT -->
+  <div id="edit-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Edit Proyek</h2>
+      <form id="editForm">
+        <input type="hidden" name="id"/>
+        <div class="form-group"><label>Nama Proyek</label><input type="text" name="name" required/></div>
+        <div class="form-group"><label>Link Dokumentasi</label><input type="url" name="link" required/></div>
+        <div class="form-group"><label>Tier</label>
+          <select name="tier" required>
+            <option value="Tier 1">Tier 1 (High Priority)</option>
+            <option value="Tier 2">Tier 2 (Medium Priority)</option>
+            <option value="Tier 3">Tier 3 (Low Priority)</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Tugas Utama</label><input type="text" name="task" required/></div>
+        <button type="submit" class="primary-btn">
+          <i class="fas fa-sync-alt"></i> Update Proyek
+        </button>
+        <button type="button" id="deleteBtn" class="secondary-btn" style="background:#c0392b;margin-top:10px;">
+          <i class="fas fa-trash"></i> Hapus Proyek
+        </button>
+      </form>
+    </div>
+  </div>
 
-  <footer class="main-footer"><p>© 2025 TesNetID. Hak Cipta Dilindungi.</p></footer>
+<footer class="main-footer">
+  <div class="footer-content">
+    <!-- Brand Section -->
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <i class="fas fa-rocket"></i> TesNetID
+      </div>
+      <p class="footer-description">
+        Platform terdepan untuk mengelola testnet cryptocurrency dan memaksimalkan potensi airdrop. Kelola proyek Anda dengan efisien.
+      </p>
+      <div class="footer-social">
+        <a href="#" class="social-link" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Telegram">
+          <i class="fab fa-telegram"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Discord">
+          <i class="fab fa-discord"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
 
-  <!-- SCRIPT (SUDAH DIPERBAIKI TOTAL) -->
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#" data-target="home"><i class="fas fa-chevron-right"></i> Home</a></li>
+        <li><a href="#" data-target="dashboard"><i class="fas fa-chevron-right"></i> Dashboard</a></li>
+        <li><a href="#" data-target="tools"><i class="fas fa-chevron-right"></i> Tools</a></li>
+        <li><a href="#" data-target="auth"><i class="fas fa-chevron-right"></i> Login</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-contact">
+      <h3>Kontak</h3>
+      <p><i class="fas fa-envelope"></i> support@tesnetid.com</p>
+      <p><i class="fas fa-globe"></i> www.tesnetid.com</p>
+      <p><i class="fas fa-clock"></i> Support 24/7</p>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-newsletter">
+      <h3>Newsletter</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">
+        Dapatkan update testnet terbaru langsung di email Anda.
+      </p>
+      <form class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="Email Anda..." required>
+        <button type="submit" class="newsletter-btn">
+          <i class="fas fa-paper-plane"></i> Subscribe
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <p>© 2025 TesNetID. Hak Cipta Dilindungi. Built with ❤️ for Crypto Community</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Firebase SDK -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
-    import { getFirestore, collection, addDoc, updateDoc, deleteDoc, doc, getDoc, onSnapshot, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+    import { 
+      getAuth, 
+      createUserWithEmailAndPassword, 
+      signInWithEmailAndPassword, 
+      onAuthStateChanged, 
+      signOut 
+    } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+    import { 
+      getFirestore, 
+      collection, 
+      addDoc, 
+      updateDoc, 
+      deleteDoc, 
+      doc, 
+      getDoc,        
+      onSnapshot, 
+      query, 
+      where, 
+      orderBy, 
+      serverTimestamp 
+    } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyA6PyEJO87eBadirv_mXfTuqMS8Xrl3eLw",
@@ -190,9 +402,11 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
+
     let currentUser = null;
     const container = document.getElementById('testnet-list-container');
 
+    // ==================== UI & NAV ====================
     const showSection = (id) => {
       document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
       document.getElementById(id + '-section')?.classList.add('active');
@@ -200,43 +414,94 @@
     };
 
     const openModal = (id) => document.getElementById(id).style.display = 'block';
-    const closeModal = (id) => { document.getElementById(id).style.display = 'none'; document.querySelector('#' + id + ' form')?.reset(); };
-    document.querySelectorAll('.close-btn').forEach(btn => btn.onclick = () => btn.closest('.modal').style.display = 'none');
-    window.onclick = e => { if (e.target.classList.contains('modal')) e.target.style.display = 'none'; };
+    const closeModal = (id) => {
+      document.getElementById(id).style.display = 'none';
+      document.querySelector('#' + id + ' form')?.reset();
+    };
 
-    // NAVIGASI YANG AMAN — HANYA TANGKAP LINK DENGAN data-target
-    document.addEventListener('click', e => {
-      const link = e.target.closest('a[data-target]');
-      if (!link) return; // link biasa (faucet, dll) tetap bisa diklik
-
-      e.preventDefault();
-      const target = link.dataset.target;
-      if (target === 'dashboard' && !currentUser) {
-        alert('Silakan login terlebih dahulu!');
-        showSection('auth');
-        return;
-      }
-      showSection(target);
+    // Event Listeners untuk navigation
+    document.querySelectorAll('.nav-menu a[data-target]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = a.dataset.target;
+        if (target === 'dashboard' && !currentUser) {
+          alert('Silakan login terlebih dahulu!');
+          showSection('auth');
+          return;
+        } 
+        showSection(target);
+      });
     });
 
-    // AUTH SWITCH
-    document.getElementById('show-register').onclick = e => { e.preventDefault(); document.getElementById('login-box').classList.add('hidden'); document.getElementById('register-box').classList.remove('hidden'); };
-    document.getElementById('show-login').onclick = e => { e.preventDefault(); document.getElementById('register-box').classList.add('hidden'); document.getElementById('login-box').classList.remove('hidden'); };
+    // Event Listeners untuk hero buttons
+    document.querySelectorAll('.hero-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const target = btn.dataset.target;
+        if (target === 'dashboard' && !currentUser) {
+          alert('Silakan login terlebih dahulu!');
+          showSection('auth');
+          return;
+        } 
+        showSection(target);
+      });
+    });
 
-    // REGISTER & LOGIN
-    document.getElementById('register-form').onsubmit = async e => { e.preventDefault();
+    // Modal handlers
+    document.querySelectorAll('.close-btn').forEach(btn => {
+      btn.onclick = () => btn.closest('.modal').style.display = 'none';
+    });
+    
+    window.onclick = e => { 
+      if (e.target.classList.contains('modal')) {
+        e.target.style.display = 'none';
+      }
+    };
+
+    // ==================== AUTH ====================
+    document.getElementById('show-register').onclick = e => { 
+      e.preventDefault(); 
+      document.getElementById('login-box').classList.add('hidden');
+      document.getElementById('register-box').classList.remove('hidden');
+    };
+    
+    document.getElementById('show-login').onclick = e => { 
+      e.preventDefault();
+      document.getElementById('register-box').classList.add('hidden');
+      document.getElementById('login-box').classList.remove('hidden');
+    };
+
+    document.getElementById('register-form').onsubmit = async e => {
+      e.preventDefault();
       const email = document.getElementById('reg-email').value.trim();
       const pass = document.getElementById('reg-password').value;
       const confirm = document.getElementById('reg-confirm').value;
+      
       if (pass !== confirm) return alert('Password tidak cocok!');
       if (pass.length < 6) return alert('Password minimal 6 karakter!');
-      try { await createUserWithEmailAndPassword(auth, email, pass); alert('Registrasi berhasil!'); } 
-      catch (err) { alert('Registrasi gagal: ' + err.message); }
+      
+      try {
+        await createUserWithEmailAndPassword(auth, email, pass);
+        alert('Registrasi berhasil! Silakan login.');
+        e.target.reset();
+      } catch (err) {
+        console.error('Register error:', err);
+        alert('Registrasi gagal: ' + (err.code === 'auth/email-already-in-use' ? 'Email sudah terdaftar!' : err.message));
+      }
     };
 
-    document.getElementById('login-form').onsubmit = async e => { e.preventDefault();
-      try { await signInWithEmailAndPassword(auth, document.getElementById('log-email').value.trim(), document.getElementById('log-password').value); } 
-      catch (err) { alert('Login gagal: ' + err.message); }
+    document.getElementById('login-form').onsubmit = async e => {
+      e.preventDefault();
+      const email = document.getElementById('log-email').value.trim();
+      const pass = document.getElementById('log-password').value;
+      
+      try {
+        await signInWithEmailAndPassword(auth, email, pass);
+        // Success handled by auth state change
+      } catch (err) {
+        console.error('Login error:', err);
+        alert('Login gagal: ' + (err.code === 'auth/wrong-password' ? 'Password salah!' : err.code === 'auth/user-not-found' ? 'Email belum terdaftar!' : err.message));
+      }
     };
 
     const updateNav = (user) => {
@@ -244,78 +509,270 @@
       if (user) {
         link.innerHTML = '<i class="fas fa-sign-out-alt"></i> Logout';
         link.className = 'logout-btn';
+        link.onclick = e => { 
+          e.preventDefault(); 
+          signOut(auth); 
+        };
       } else {
         link.innerHTML = '<i class="fas fa-sign-in-alt"></i> Login / Register';
         link.className = 'cta-button';
+        link.onclick = e => { 
+          e.preventDefault(); 
+          showSection('auth'); 
+        };
       }
     };
 
-    // SEMUA FUNGSI FIRESTORE & DASHBOARD (tetap sama, sudah teruji)
-    const iconMap = { 'Tier 1': 'fas fa-star', 'Tier 2': 'fas fa-rocket', 'Tier 3': 'fas fa-leaf' };
+    // ==================== REALTIME LIST ====================
+    const iconMap = { 
+      'Tier 1': 'fas fa-star', 
+      'Tier 2': 'fas fa-rocket', 
+      'Tier 3': 'fas fa-leaf' 
+    };
+
     function loadProjects(uid) {
       container.innerHTML = '<p style="text-align:center;padding:60px;color:#aaa;">Memuat proyek Anda...</p>';
-      const q = query(collection(db, "projects"), where("userId", "==", uid), orderBy("updatedAt", "desc"));
-      onSnapshot(q, snap => {
+
+      const q = query(
+        collection(db, "projects"),
+        where("userId", "==", uid),
+        orderBy("updatedAt", "desc")
+      );
+
+      onSnapshot(q, (snapshot) => {
         container.innerHTML = '';
-        if (snap.empty) { container.innerHTML = '<p style="text-align:center;padding:60px;color:#aaa;">Belum ada proyek.</p>'; return; }
-        snap.forEach(d => {
-          const data = d.data(); const id = d.id;
-          const html = `<div class="testnet-card" data-id="${id}" data-tier="${data.tier}" data-status="${data.completed ? 'Selesai' : 'Aktif'}">
-            <div class="card-header"><h3><i class="fas fa-code-branch"></i> ${data.name}</h3></div>
-            <div class="link-info"><a href="${data.link}" target="_blank"><i class="fas fa-external-link-alt"></i> Link</a></div>
-            <div class="metrics"><span><i class="${iconMap[data.tier]}"></i> ${data.tier}</span></div>
-            <div class="task-summary">${data.task}</div>
-            <div class="task-item"><input type="checkbox" ${data.completed ? 'checked' : ''} onchange="toggleComplete('${id}', this.checked)"></div>
-            <button class="secondary-btn" onclick="openEdit('${id}')">Edit</button>
-          </div>`;
+        if (snapshot.empty) {
+          container.innerHTML = '<p style="text-align:center;padding:60px;color:#aaa;">Belum ada proyek. Klik "Tambah Proyek Baru" untuk mulai!</p>';
+          return;
+        }
+        
+        snapshot.forEach(docSnap => {
+          const data = docSnap.data();
+          const id = docSnap.id;
+          const completed = data.completed || false;
+          const html = `
+            <div class="testnet-card" data-id="${id}" data-tier="${data.tier}" data-status="${completed ? 'Selesai' : 'Aktif'}">
+              <div class="card-header"><h3><i class="fas fa-code-branch"></i> ${data.name}</h3></div>
+              <div class="link-info"><a href="${data.link}" target="_blank"><i class="fas fa-external-link-alt"></i> Link</a></div>
+              <div class="metrics"><span><i class="${iconMap[data.tier] || 'fas fa-layer-group'}"></i> ${data.tier}</span></div>
+              <div class="task-summary">${data.task}</div>
+              <div class="task-item">
+                <input type="checkbox" ${completed ? 'checked' : ''} onchange="toggleComplete('${id}', this.checked)">
+              </div>
+              <button class="secondary-btn" onclick="openEdit('${id}')">Edit</button>
+            </div>`;
           container.insertAdjacentHTML('beforeend', html);
         });
+      }, (err) => {
+        console.error('Firestore error:', err);
+        container.innerHTML = '<p style="color:red;text-align:center;">Gagal memuat data: ' + err.message + '</p>';
       });
     }
 
-    window.toggleComplete = async (id, checked) => { await updateDoc(doc(db, 'projects', id), { completed: checked, updatedAt: serverTimestamp() }); };
-    window.openEdit = async (id) => { const snap = await getDoc(doc(db, 'projects', id)); const data = snap.data();
-      const f = document.getElementById('editForm');
-      f.elements['id'].value = id; f.elements['name'].value = data.name; f.elements['link'].value = data.link; f.elements['tier'].value = data.tier; f.elements['task'].value = data.task;
-      openModal('edit-modal');
+    // ==================== FUNGSI GLOBAL ====================
+    window.toggleComplete = async (id, checked) => {
+      try {
+        await updateDoc(doc(db, 'projects', id), {
+          completed: checked,
+          updatedAt: serverTimestamp()
+        });
+      } catch (err) {
+        console.error('Toggle error:', err);
+        alert('Gagal update status: ' + err.message);
+      }
     };
 
+    window.openEdit = async (id) => {
+      try {
+        const docSnap = await getDoc(doc(db, 'projects', id));
+        if (!docSnap.exists()) throw new Error("Data tidak ditemukan");
+        
+        const data = docSnap.data();
+        const form = document.getElementById('editForm');
+        form.elements['id'].value = id;
+        form.elements['name'].value = data.name || '';
+        form.elements['link'].value = data.link || '';
+        form.elements['tier'].value = data.tier || 'Tier 1';
+        form.elements['task'].value = data.task || '';
+        
+        openModal('edit-modal');
+      } catch (err) {
+        console.error('Edit error:', err);
+        alert('Gagal membuka edit: ' + err.message);
+      }
+    };
+
+    // ==================== TAMBAH PROYEK ====================
     document.getElementById('addProjectBtn').onclick = () => openModal('add-modal');
-    document.getElementById('addForm').onsubmit = async e => { e.preventDefault(); if (!currentUser) return alert('Login dulu!');
+    
+    document.getElementById('addForm').onsubmit = async e => {
+      e.preventDefault();
+      if (!currentUser) return alert('Login dulu!');
+      
       const fd = new FormData(e.target);
-      await addDoc(collection(db, 'projects'), { name: fd.get('name').trim(), link: fd.get('link').trim(), tier: fd.get('tier'), task: fd.get('task').trim(), completed: false, userId: currentUser.uid, updatedAt: serverTimestamp() });
-      alert('Proyek ditambahkan!'); closeModal('add-modal');
+      const name = fd.get('name')?.trim();
+      if (!name) return alert('Nama proyek wajib diisi!');
+      
+      try {
+        await addDoc(collection(db, 'projects'), {
+          name,
+          link: fd.get('link')?.trim() || '',
+          tier: fd.get('tier') || 'Tier 1',
+          task: fd.get('task')?.trim() || '',
+          completed: false,
+          userId: currentUser.uid,
+          updatedAt: serverTimestamp()
+        });
+        alert('Proyek berhasil ditambahkan!');
+        closeModal('add-modal');
+        e.target.reset();
+      } catch (err) {
+        console.error('Add error:', err);
+        alert('Gagal: ' + err.message);
+      }
     };
 
-    document.getElementById('editForm').onsubmit = async e => { e.preventDefault(); const fd = new FormData(e.target);
-      await updateDoc(doc(db, 'projects', fd.get('id')), { name: fd.get('name').trim(), link: fd.get('link').trim(), tier: fd.get('tier'), task: fd.get('task').trim(), updatedAt: serverTimestamp() });
-      alert('Diperbarui!'); closeModal('edit-modal');
+    // ==================== EDIT & HAPUS ====================
+    document.getElementById('editForm').onsubmit = async e => {
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const id = fd.get('id');
+      if (!id) return alert('ID proyek tidak valid!');
+      
+      const name = fd.get('name')?.trim();
+      if (!name) return alert('Nama proyek wajib diisi!');
+      
+      try {
+        await updateDoc(doc(db, 'projects', id), {
+          name,
+          link: fd.get('link')?.trim() || '',
+          tier: fd.get('tier') || 'Tier 1',
+          task: fd.get('task')?.trim() || '',
+          updatedAt: serverTimestamp()
+        });
+        alert('Berhasil diupdate!');
+        closeModal('edit-modal');
+      } catch (err) {
+        console.error('Update error:', err);
+        alert('Gagal update: ' + err.message);
+      }
     };
 
-    document.getElementById('deleteBtn').onclick = async () => { if (!confirm('Hapus proyek ini?')) return;
-      await deleteDoc(doc(db, 'projects', document.querySelector('#editForm [name="id"]').value)); alert('Dihapus!'); closeModal('edit-modal');
+    document.getElementById('deleteBtn').onclick = async () => {
+      if (!confirm('Yakin ingin menghapus proyek ini?')) return;
+      const id = document.querySelector('#editForm [name="id"]').value;
+      if (!id) return alert('ID tidak valid!');
+      
+      try {
+        await deleteDoc(doc(db, 'projects', id));
+        alert('Proyek dihapus');
+        closeModal('edit-modal');
+      } catch (err) {
+        console.error('Delete error:', err);
+        alert('Gagal menghapus: ' + err.message);
+      }
     };
 
-    onAuthStateChanged(auth, user => {
-      currentUser = user; updateNav(user);
-      if (user) { showSection('dashboard'); loadProjects(user.uid); }
-      else { showSection('home'); container.innerHTML = ''; }
+    // ==================== AUTH STATE ====================
+    onAuthStateChanged(auth, (user) => {
+      currentUser = user;
+      updateNav(user);
+      
+      if (user) {
+        console.log('User logged in:', user.uid);
+        showSection('dashboard');
+        loadProjects(user.uid);
+      } else {
+        console.log('User logged out');
+        showSection('home');
+        if (container) container.innerHTML = '';
+      }
     });
 
-    // Filter & Search
+    // ==================== FILTER & SEARCH ====================
     const applyFilters = () => {
-      const search = (document.getElementById('searchInput')?.value || '').toLowerCase();
+      const search = document.getElementById('searchInput')?.value.toLowerCase() || '';
       const status = document.getElementById('filterStatus')?.value || '';
       const tier = document.getElementById('filterTier')?.value || '';
+      
       document.querySelectorAll('.testnet-card:not(.header-row)').forEach(card => {
         const name = card.querySelector('h3')?.textContent.toLowerCase() || '';
-        const visible = name.includes(search) && (!status || card.dataset.status === status) && (!tier || card.dataset.tier === tier);
+        const cardStatus = card.dataset.status || '';
+        const cardTier = card.dataset.tier || '';
+        const visible = name.includes(search) && 
+                        (!status || cardStatus === status) && 
+                        (!tier || cardTier === tier);
         card.style.display = visible ? 'grid' : 'none';
       });
     };
-    ['searchInput','filterStatus','filterTier'].forEach(id => document.getElementById(id)?.addEventListener('input', applyFilters));
+    
+    ['searchInput', 'filterStatus', 'filterTier'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', applyFilters);
+    });
 
+    // Init: Show home on load
     showSection('home');
+  </script>
+
+  <!-- Stats Counter Animation -->
+  <script>
+    function animateStats() {
+      const counters = document.querySelectorAll('.stat-number');
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-count');
+        const increment = target / 100;
+        let current = 0;
+        
+        const updateCounter = () => {
+          if (current < target) {
+            current += increment;
+            counter.textContent = Math.ceil(current);
+            setTimeout(updateCounter, 20);
+          } else {
+            counter.textContent = target;
+          }
+        };
+        
+        updateCounter();
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateStats();
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    const statsSection = document.querySelector('.stats-counter');
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+  </script>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const toggle = document.getElementById('toggle');
+    const body = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light' || 
+       (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+        toggle.checked = true;
+    }
+
+    toggle.addEventListener('change', () => {
+        if (toggle.checked) {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
   </script>
 </body>
 </html>
