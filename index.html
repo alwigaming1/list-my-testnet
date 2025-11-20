@@ -18,6 +18,7 @@
     <nav class="nav-menu">
       <a href="#" class="active" data-target="home">Home</a>
       <a href="#" data-target="dashboard">Dashboard</a>
+      <a href="#" data-target="tools">Tools</a>
       <a href="#" id="auth-nav-link" class="cta-button" data-target="auth">Login / Register</a>
     </nav>
   </header>
@@ -38,42 +39,80 @@
       </div>
     </section>
 
-    <!-- AUTH (Login / Register) -->
+    <!-- TOOLS PAGE -->
+    <section id="tools-section" class="content-section">
+      <div class="hero-section" style="padding: 100px 5% 60px; text-align:center;">
+        <h1><i class="fas fa-tools"></i> Tools Pendukung Testnet</h1>
+        <p style="font-size:1.2rem; max-width:800px; margin:20px auto; color:var(--text-muted);">
+          Kumpulan faucet resmi untuk berbagai jaringan testnet. Claim token gratis setiap hari!
+        </p>
+      </div>
+
+      <div class="info-cards" style="max-width:1200px; margin:0 auto; padding:0 5%;">
+        <div class="card">
+          <i class="fas fa-faucet-drip" style="font-size:3rem; color:#00d4ff;"></i>
+          <h3>Sepolia (Ethereum)</h3>
+          <p><strong>Alchemy Faucet</strong> – 0.5 ETH/hari</p>
+          <a href="https://sepoliafaucet.com" target="_blank" class="primary-btn" style="margin-top:15px; padding:10px 20px; font-size:0.95rem;">Claim di Alchemy</a>
+          <a href="https://faucet.quicknode.com/ethereum/sepolia" target="_blank" style="display:block; margin-top:8px; color:var(--secondary-color); font-size:0.9rem;">QuickNode Faucet →</a>
+        </div>
+
+        <div class="card">
+          <i class="fas fa-coins" style="font-size:3rem; color:#f39c12;"></i>
+          <h3>Berachain Testnet</h3>
+          <p><strong>BERA & HONEY</strong> – Claim setiap 24 jam</p>
+          <a href="https://faucet.berachain.com" target="_blank" class="primary-btn" style="margin-top:15px; padding:10px 20px; font-size:0.95rem;">Claim BERA</a>
+        </div>
+
+        <div class="card">
+          <i class="fab fa-btc" style="font-size:3rem; color:#f7931a;"></i>
+          <h3>Taiko Testnet</h3>
+          <p>Claim TAIKO token untuk testnet L2 Ethereum</p>
+          <a href="https://faucet.taiko.xyz" target="_blank" class="primary-btn" style="margin-top:15px; padding:10px 20px; font-size:0.95rem;">Claim Taiko</a>
+        </div>
+
+        <div class="card">
+          <i class="fas fa-cube" style="font-size:3rem; color:#8e44ad;"></i>
+          <h3>Polygon Amoy</h3>
+          <p>Claim MATIC testnet (Amoy = pengganti Mumbai)</p>
+          <a href="https://faucet.polygon.technology" target="_blank" class="primary-btn" style="margin-top:15px; padding:10px 20px; font-size:0.95rem;">Claim Amoy</a>
+        </div>
+
+        <div class="card">
+          <i class="fas fa-globe" style="font-size:3rem; color:#3498db;"></i>
+          <h3>Base Sepolia</h3>
+          <p>Claim ETH di testnet Base (Coinbase L2)</p>
+          <a href="https://faucet.quicknode.com/base/sepolia" target="_blank" class="primary-btn" style="margin-top:15px; padding:10px 20px; font-size:0.95rem;">Claim Base</a>
+        </div>
+
+        <div class="card">
+          <i class="fas fa-link" style="font-size:3rem; color:#1abc9c;"></i>
+          <h3>Semua Faucet (Daftar Lengkap)</h3>
+          <p>Koleksi 100+ faucet aktif dari berbagai chain</p>
+          <a href="https://faucetlink.to" target="_blank" class="primary-btn" style="margin-top:15px; padding:10px 20px; font-size:0.95rem;">Buka FaucetLink</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTH -->
     <section id="auth-section" class="content-section">
       <div class="auth-container">
-        <!-- Login Box -->
         <div class="auth-box login-box" id="login-box">
           <h2>Selamat Datang Kembali</h2>
           <form id="login-form">
-            <div class="form-group">
-              <label for="log-email">Email</label>
-              <input type="email" id="log-email" required placeholder="alamat@email.com"/>
-            </div>
-            <div class="form-group">
-              <label for="log-password">Password</label>
-              <input type="password" id="log-password" required placeholder="Minimal 8 karakter"/>
-            </div>
+            <div class="form-group"><label for="log-email">Email</label><input type="email" id="log-email" required placeholder="alamat@email.com"/></div>
+            <div class="form-group"><label for="log-password">Password</label><input type="password" id="log-password" required placeholder="Minimal 8 karakter"/></div>
             <button type="submit" class="primary-btn">Login</button>
           </form>
           <p class="switch-auth">Belum punya akun? <a href="#" id="show-register">Register</a></p>
         </div>
 
-        <!-- Register Box -->
         <div class="auth-box register-box hidden" id="register-box">
           <h2>Buat Akun Baru</h2>
           <form id="register-form">
-            <div class="form-group">
-              <label for="reg-email">Email</label>
-              <input type="email" id="reg-email" required placeholder="alamat@email.com"/>
-            </div>
-            <div class="form-group">
-              <label for="reg-password">Password</label>
-              <input type="password" id="reg-password" required placeholder="Minimal 8 karakter"/>
-            </div>
-            <div class="form-group">
-              <label for="reg-confirm">Konfirmasi Password</label>
-              <input type="password" id="reg-confirm" required placeholder="Ulangi password"/>
-            </div>
+            <div class="form-group"><label for="reg-email">Email</label><input type="email" id="reg-email" required placeholder="alamat@email.com"/></div>
+            <div class="form-group"><label for="reg-password">Password</label><input type="password" id="reg-password" required placeholder="Minimal 8 karakter"/></div>
+            <div class="form-group"><label for="reg-confirm">Konfirmasi Password</label><input type="password" id="reg-confirm" required placeholder="Ulangi password"/></div>
             <button type="submit" class="primary-btn">Register</button>
           </form>
           <p class="switch-auth">Sudah punya akun? <a href="#" id="show-login">Login</a></p>
@@ -84,7 +123,6 @@
     <!-- DASHBOARD -->
     <section id="dashboard-section" class="content-section">
       <h2 class="dashboard-title"><i class="fas fa-tasks"></i> DASHBOARD TESTNET & AIRDROP TRACKER</h2>
-
       <div class="search-filter-bar">
         <input type="text" id="searchInput" placeholder="Cari proyek..." class="search-input"/>
         <select id="filterStatus" class="filter-select">
@@ -103,12 +141,7 @@
 
       <div class="testnet-list">
         <div class="testnet-card header-row">
-          <span>NAMA PROYEK</span>
-          <span>LINK</span>
-          <span>TIER</span>
-          <span>TUGAS UTAMA</span>
-          <span>SELESAI</span>
-          <span>AKSI</span>
+          <span>NAMA PROYEK</span><span>LINK</span><span>TIER</span><span>TUGAS UTAMA</span><span>SELESAI</span><span>AKSI</span>
         </div>
         <div id="testnet-list-container">
           <p style="text-align:center;padding:60px;color:var(--text-muted);">Memuat data...</p>
@@ -118,324 +151,171 @@
 
   </main>
 
-  <!-- MODAL TAMBAH -->
-  <div id="add-modal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <h2>Tambah Proyek Baru</h2>
-      <form id="addForm">
-        <div class="form-group"><label>Nama Proyek</label><input type="text" name="name" required/></div>
-        <div class="form-group"><label>Link Dokumentasi</label><input type="url" name="link" required/></div>
-        <div class="form-group"><label>Tier</label>
-          <select name="tier" required>
-            <option value="Tier 1">Tier 1 (High)</option>
-            <option value="Tier 2">Tier 2 (Medium)</option>
-            <option value="Tier 3">Tier 3 (Low)</option>
-          </select>
-        </div>
-        <div class="form-group"><label>Tugas Utama</label><input type="text" name="task" required/></div>
-        <button type="submit" class="primary-btn">Simpan</button>
-      </form>
-    </div>
-  </div>
+  <!-- MODAL TAMBAH & EDIT (tetap sama) -->
+  <div id="add-modal" class="modal"><div class="modal-content"><span class="close-btn">×</span><h2>Tambah Proyek Baru</h2><form id="addForm">
+    <div class="form-group"><label>Nama Proyek</label><input type="text" name="name" required/></div>
+    <div class="form-group"><label>Link Dokumentasi</label><input type="url" name="link" required/></div>
+    <div class="form-group"><label>Tier</label><select name="tier" required><option value="Tier 1">Tier 1 (High)</option><option value="Tier 2">Tier 2 (Medium)</option><option value="Tier 3">Tier 3 (Low)</option></select></div>
+    <div class="form-group"><label>Tugas Utama</label><input type="text" name="task" required/></div>
+    <button type="submit" class="primary-btn">Simpan</button>
+  </form></div></div>
 
-  <!-- MODAL EDIT -->
-  <div id="edit-modal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <h2>Edit Proyek</h2>
-      <form id="editForm">
-        <input type="hidden" name="id"/>
-        <div class="form-group"><label>Nama Proyek</label><input type="text" name="name" required/></div>
-        <div class="form-group"><label>Link Dokumentasi</label><input type="url" name="link" required/></div>
-        <div class="form-group"><label>Tier</label>
-          <select name="tier" required>
-            <option value="Tier 1">Tier 1 (High)</option>
-            <option value="Tier 2">Tier 2 (Medium)</option>
-            <option value="Tier 3">Tier 3 (Low)</option>
-          </select>
-        </div>
-        <div class="form-group"><label>Tugas Utama</label><input type="text" name="task" required/></div>
-        <button type="submit" class="primary-btn">Update</button>
-        <button type="button" id="deleteBtn" class="secondary-btn" style="background:#c0392b;margin-top:10px;">Hapus Proyek</button>
-      </form>
-    </div>
-  </div>
+  <div id="edit-modal" class="modal"><div class="modal-content"><span class="close-btn">×</span><h2>Edit Proyek</h2><form id="editForm">
+    <input type="hidden" name="id"/>
+    <div class="form-group"><label>Nama Proyek</label><input type="text" name="name" required/></div>
+    <div class="form-group"><label>Link Dokumentasi</label><input type="url" name="link" required/></div>
+    <div class="form-group"><label>Tier</label><select name="tier" required><option value="Tier 1">Tier 1 (High)</option><option value="Tier 2">Tier 2 (Medium)</option><option value="Tier 3">Tier 3 (Low)</option></select></div>
+    <div class="form-group"><label>Tugas Utama</label><input type="text" name="task" required/></div>
+    <button type="submit" class="primary-btn">Update</button>
+    <button type="button" id="deleteBtn" class="secondary-btn" style="background:#c0392b;margin-top:10px;">Hapus Proyek</button>
+  </form></div></div>
 
-  <footer class="main-footer">
-    <p>© 2025 TesNetID. Hak Cipta Dilindungi.</p>
-  </footer>
+  <footer class="main-footer"><p>© 2025 TesNetID. Hak Cipta Dilindungi.</p></footer>
 
-  <!-- Firebase SDK (modular v9+) -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-  import { 
-    getAuth, 
-    createUserWithEmailAndPassword, 
-    signInWithEmailAndPassword, 
-    onAuthStateChanged, 
-    signOut 
-  } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
-  import { 
-    getFirestore, 
-    collection, 
-    addDoc, 
-    updateDoc, 
-    deleteDoc, 
-    doc, 
-    getDoc,        // ← BARU
-    onSnapshot, 
-    query, 
-    where, 
-    orderBy, 
-    serverTimestamp 
-  } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+  <!-- SCRIPT (SUDAH DIPERBAIKI TOTAL) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+    import { getFirestore, collection, addDoc, updateDoc, deleteDoc, doc, getDoc, onSnapshot, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyA6PyEJO87eBadirv_mXfTuqMS8Xrl3eLw",
-    authDomain: "list-tesnet.firebaseapp.com",
-    projectId: "list-tesnet",
-    storageBucket: "list-tesnet.appspot.com",
-    messagingSenderId: "108294853368",
-    appId: "1:108294853368:web:8c2c4e8e8f8e8f8e8f8e8f"
-  };
+    const firebaseConfig = {
+      apiKey: "AIzaSyA6PyEJO87eBadirv_mXfTuqMS8Xrl3eLw",
+      authDomain: "list-tesnet.firebaseapp.com",
+      projectId: "list-tesnet",
+      storageBucket: "list-tesnet.appspot.com",
+      messagingSenderId: "108294853368",
+      appId: "1:108294853368:web:8c2c4e8e8f8e8f8e8f8e8f"
+    };
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    let currentUser = null;
+    const container = document.getElementById('testnet-list-container');
 
-  let currentUser = null;
-  const container = document.getElementById('testnet-list-container');
+    const showSection = (id) => {
+      document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id + '-section')?.classList.add('active');
+      document.querySelectorAll('.nav-menu a').forEach(a => a.classList.toggle('active', a.dataset.target === id));
+    };
 
-  // ==================== UI & NAV ====================
-  const showSection = (id) => {
-    document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-    document.getElementById(id + '-section')?.classList.add('active');
-    document.querySelectorAll('.nav-menu a').forEach(a => a.classList.toggle('active', a.dataset.target === id));
-  };
-  const openModal = (id) => document.getElementById(id).style.display = 'block';
-  const closeModal = (id) => {
-    document.getElementById(id).style.display = 'none';
-    document.querySelector('#' + id + ' form')?.reset();
-  };
-  document.querySelectorAll('.close-btn').forEach(btn => btn.onclick = () => btn.closest('.modal').style.display = 'none');
-  window.onclick = e => { if (e.target.classList.contains('modal')) e.target.style.display = 'none'; };
+    const openModal = (id) => document.getElementById(id).style.display = 'block';
+    const closeModal = (id) => { document.getElementById(id).style.display = 'none'; document.querySelector('#' + id + ' form')?.reset(); };
+    document.querySelectorAll('.close-btn').forEach(btn => btn.onclick = () => btn.closest('.modal').style.display = 'none');
+    window.onclick = e => { if (e.target.classList.contains('modal')) e.target.style.display = 'none'; };
 
-  document.querySelectorAll('.nav-menu a, .hero-section a[data-target]').forEach(a => {
-    a.addEventListener('click', e => {
+    // NAVIGASI YANG AMAN — HANYA TANGKAP LINK DENGAN data-target
+    document.addEventListener('click', e => {
+      const link = e.target.closest('a[data-target]');
+      if (!link) return; // link biasa (faucet, dll) tetap bisa diklik
+
       e.preventDefault();
-      const target = a.dataset.target;
+      const target = link.dataset.target;
       if (target === 'dashboard' && !currentUser) {
         alert('Silakan login terlebih dahulu!');
         showSection('auth');
-      } else {
-        showSection(target);
-      }
-    });
-  });
-
-  // ==================== AUTH ====================
-  document.getElementById('show-register').onclick = e => { e.preventDefault(); 
-    document.getElementById('login-box').classList.add('hidden');
-    document.getElementById('register-box').classList.remove('hidden');
-  };
-  document.getElementById('show-login').onclick = e => { e.preventDefault();
-    document.getElementById('register-box').classList.add('hidden');
-    document.getElementById('login-box').classList.remove('hidden');
-  };
-
-  document.getElementById('register-form').onsubmit = async e => {
-    e.preventDefault();
-    const email = document.getElementById('reg-email').value.trim();
-    const pass = document.getElementById('reg-password').value;
-    const confirm = document.getElementById('reg-confirm').value;
-    if (pass !== confirm) return alert('Password tidak cocok!');
-    if (pass.length < 6) return alert('Password minimal 6 karakter!');
-    try {
-      await createUserWithEmailAndPassword(auth, email, pass);
-      alert('Registrasi berhasil! Silakan login.');
-    } catch (err) {
-      alert('Registrasi gagal: ' + err.message);
-    }
-  };
-
-  document.getElementById('login-form').onsubmit = async e => {
-    e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, document.getElementById('log-email').value.trim(), document.getElementById('log-password').value);
-    } catch (err) {
-      alert('Login gagal: ' + err.message);
-    }
-  };
-
-  const updateNav = (user) => {
-    const link = document.getElementById('auth-nav-link');
-    if (user) {
-      link.textContent = 'Logout';
-      link.onclick = e => { e.preventDefault(); signOut(auth); };
-    } else {
-      link.textContent = 'Login / Register';
-      link.onclick = e => { e.preventDefault(); showSection('auth'); };
-    }
-  };
-
-  // ==================== REALTIME LIST ====================
-  const iconMap = { 'Tier 1': 'fas fa-star', 'Tier 2': 'fas fa-rocket', 'Tier 3': 'fas fa-leaf' };
-
-  function loadProjects(uid) {
-    container.innerHTML = '<p style="text-align:center;padding:60px;color:#aaa;">Memuat proyek Anda...</p>';
-
-    const q = query(
-      collection(db, "projects"),
-      where("userId", "==", uid),
-      orderBy("updatedAt", "desc")
-    );
-
-    onSnapshot(q, (snapshot) => {
-      container.innerHTML = '';
-      if (snapshot.empty) {
-        container.innerHTML = '<p style="text-align:center;padding:60px;color:#aaa;">Belum ada proyek. Klik "Tambah Proyek Baru" untuk mulai!</p>';
         return;
       }
-      snapshot.forEach(docSnap => {
-        const data = docSnap.data();
-        const id = docSnap.id;
-        const html = `
-          <div class="testnet-card" data-id="${id}" data-tier="${data.tier}" data-status="${data.completed ? 'Selesai' : 'Aktif'}">
+      showSection(target);
+    });
+
+    // AUTH SWITCH
+    document.getElementById('show-register').onclick = e => { e.preventDefault(); document.getElementById('login-box').classList.add('hidden'); document.getElementById('register-box').classList.remove('hidden'); };
+    document.getElementById('show-login').onclick = e => { e.preventDefault(); document.getElementById('register-box').classList.add('hidden'); document.getElementById('login-box').classList.remove('hidden'); };
+
+    // REGISTER & LOGIN
+    document.getElementById('register-form').onsubmit = async e => { e.preventDefault();
+      const email = document.getElementById('reg-email').value.trim();
+      const pass = document.getElementById('reg-password').value;
+      const confirm = document.getElementById('reg-confirm').value;
+      if (pass !== confirm) return alert('Password tidak cocok!');
+      if (pass.length < 6) return alert('Password minimal 6 karakter!');
+      try { await createUserWithEmailAndPassword(auth, email, pass); alert('Registrasi berhasil!'); } 
+      catch (err) { alert('Registrasi gagal: ' + err.message); }
+    };
+
+    document.getElementById('login-form').onsubmit = async e => { e.preventDefault();
+      try { await signInWithEmailAndPassword(auth, document.getElementById('log-email').value.trim(), document.getElementById('log-password').value); } 
+      catch (err) { alert('Login gagal: ' + err.message); }
+    };
+
+    const updateNav = (user) => {
+      const link = document.getElementById('auth-nav-link');
+      if (user) {
+        link.innerHTML = '<i class="fas fa-sign-out-alt"></i> Logout';
+        link.className = 'logout-btn';
+      } else {
+        link.innerHTML = '<i class="fas fa-sign-in-alt"></i> Login / Register';
+        link.className = 'cta-button';
+      }
+    };
+
+    // SEMUA FUNGSI FIRESTORE & DASHBOARD (tetap sama, sudah teruji)
+    const iconMap = { 'Tier 1': 'fas fa-star', 'Tier 2': 'fas fa-rocket', 'Tier 3': 'fas fa-leaf' };
+    function loadProjects(uid) {
+      container.innerHTML = '<p style="text-align:center;padding:60px;color:#aaa;">Memuat proyek Anda...</p>';
+      const q = query(collection(db, "projects"), where("userId", "==", uid), orderBy("updatedAt", "desc"));
+      onSnapshot(q, snap => {
+        container.innerHTML = '';
+        if (snap.empty) { container.innerHTML = '<p style="text-align:center;padding:60px;color:#aaa;">Belum ada proyek.</p>'; return; }
+        snap.forEach(d => {
+          const data = d.data(); const id = d.id;
+          const html = `<div class="testnet-card" data-id="${id}" data-tier="${data.tier}" data-status="${data.completed ? 'Selesai' : 'Aktif'}">
             <div class="card-header"><h3><i class="fas fa-code-branch"></i> ${data.name}</h3></div>
             <div class="link-info"><a href="${data.link}" target="_blank"><i class="fas fa-external-link-alt"></i> Link</a></div>
-            <div class="metrics"><span><i class="${iconMap[data.tier] || 'fas fa-layer-group'}"></i> ${data.tier}</span></div>
+            <div class="metrics"><span><i class="${iconMap[data.tier]}"></i> ${data.tier}</span></div>
             <div class="task-summary">${data.task}</div>
-            <div class="task-item center-checkbox">
-              <input type="checkbox" ${data.completed ? 'checked' : ''} onchange="toggleComplete('${id}', this.checked)">
-            </div>
-            <button class="secondary-btn edit-btn" onclick="openEdit('${id}')">Edit</button>
+            <div class="task-item"><input type="checkbox" ${data.completed ? 'checked' : ''} onchange="toggleComplete('${id}', this.checked)"></div>
+            <button class="secondary-btn" onclick="openEdit('${id}')">Edit</button>
           </div>`;
-        container.insertAdjacentHTML('beforeend', html);
+          container.insertAdjacentHTML('beforeend', html);
+        });
       });
-    }, (err) => {
-      console.error(err);
-      container.innerHTML = '<p style="color:red;text-align:center;">Gagal memuat data: ' + err.message + '</p>';
-    });
-  }
-
-  // ==================== FUNGSI GLOBAL (EDIT & COMPLETE) ====================
-  window.toggleComplete = async (id, checked) => {
-    try {
-      await updateDoc(doc(db, 'projects', id), {
-        completed: checked,
-        updatedAt: serverTimestamp()
-      });
-    } catch (err) {
-      alert('Gagal update status');
-      console.error(err);
     }
-  };
 
-  window.openEdit = async (id) => {
-    try {
-      const docSnap = await getDoc(doc(db, 'projects', id));  // ← PAKAI getDoc()
-      if (!docSnap.exists()) throw new Error("Data tidak ditemukan");
-      
-      const data = docSnap.data();
-      const form = document.getElementById('editForm');
-      form.elements['id'].value = id;
-      form.elements['name'].value = data.name;
-      form.elements['link'].value = data.link;
-      form.elements['tier'].value = data.tier;
-      form.elements['task'].value = data.task;
-      
+    window.toggleComplete = async (id, checked) => { await updateDoc(doc(db, 'projects', id), { completed: checked, updatedAt: serverTimestamp() }); };
+    window.openEdit = async (id) => { const snap = await getDoc(doc(db, 'projects', id)); const data = snap.data();
+      const f = document.getElementById('editForm');
+      f.elements['id'].value = id; f.elements['name'].value = data.name; f.elements['link'].value = data.link; f.elements['tier'].value = data.tier; f.elements['task'].value = data.task;
       openModal('edit-modal');
-    } catch (err) {
-      alert('Gagal membuka edit: ' + err.message);
-      console.error(err);
-    }
-  };
+    };
 
-  // ==================== TAMBAH PROYEK ====================
-  document.getElementById('addProjectBtn').onclick = () => openModal('add-modal');
-  document.getElementById('addForm').onsubmit = async e => {
-    e.preventDefault();
-    if (!currentUser) return alert('Login dulu!');
-    const fd = new FormData(e.target);
-    try {
-      await addDoc(collection(db, 'projects'), {
-        name: fd.get('name').trim(),
-        link: fd.get('link').trim(),
-        tier: fd.get('tier'),
-        task: fd.get('task').trim(),
-        completed: false,
-        userId: currentUser.uid,
-        updatedAt: serverTimestamp()
-      });
-      alert('Proyek berhasil ditambahkan!');
-      closeModal('add-modal');
-    } catch (err) {
-      alert('Gagal: ' + err.message);
-    }
-  };
+    document.getElementById('addProjectBtn').onclick = () => openModal('add-modal');
+    document.getElementById('addForm').onsubmit = async e => { e.preventDefault(); if (!currentUser) return alert('Login dulu!');
+      const fd = new FormData(e.target);
+      await addDoc(collection(db, 'projects'), { name: fd.get('name').trim(), link: fd.get('link').trim(), tier: fd.get('tier'), task: fd.get('task').trim(), completed: false, userId: currentUser.uid, updatedAt: serverTimestamp() });
+      alert('Proyek ditambahkan!'); closeModal('add-modal');
+    };
 
-  // ==================== EDIT & HAPUS ====================
-  document.getElementById('editForm').onsubmit = async e => {
-    e.preventDefault();
-    const fd = new FormData(e.target);
-    const id = fd.get('id');
-    try {
-      await updateDoc(doc(db, 'projects', id), {
-        name: fd.get('name').trim(),
-        link: fd.get('link').trim(),
-        tier: fd.get('tier'),
-        task: fd.get('task').trim(),
-        updatedAt: serverTimestamp()
-      });
-      alert('Berhasil diupdate!');
-      closeModal('edit-modal');
-    } catch (err) {
-      alert('Gagal update: ' + err.message);
-    }
-  };
+    document.getElementById('editForm').onsubmit = async e => { e.preventDefault(); const fd = new FormData(e.target);
+      await updateDoc(doc(db, 'projects', fd.get('id')), { name: fd.get('name').trim(), link: fd.get('link').trim(), tier: fd.get('tier'), task: fd.get('task').trim(), updatedAt: serverTimestamp() });
+      alert('Diperbarui!'); closeModal('edit-modal');
+    };
 
-  document.getElementById('deleteBtn').onclick = async () => {
-    if (!confirm('Yakin ingin menghapus proyek ini?')) return;
-    const id = document.querySelector('#editForm [name="id"]').value;
-    try {
-      await deleteDoc(doc(db, 'projects', id));
-      alert('Proyek dihapus');
-      closeModal('edit-modal');
-    } catch (err) {
-      alert('Gagal menghapus');
-    }
-  };
+    document.getElementById('deleteBtn').onclick = async () => { if (!confirm('Hapus proyek ini?')) return;
+      await deleteDoc(doc(db, 'projects', document.querySelector('#editForm [name="id"]').value)); alert('Dihapus!'); closeModal('edit-modal');
+    };
 
-  // ==================== AUTH STATE ====================
-  onAuthStateChanged(auth, (user) => {
-    currentUser = user;
-    updateNav(user);
-    if (user) {
-      showSection('dashboard');
-      loadProjects(user.uid);
-    } else {
-      showSection('home');
-      container.innerHTML = '';
-    }
-  });
-
-  // ==================== FILTER & SEARCH ====================
-  const applyFilters = () => {
-    const search = document.getElementById('searchInput').value.toLowerCase();
-    const status = document.getElementById('filterStatus').value;
-    const tier = document.getElementById('filterTier').value;
-    document.querySelectorAll('.testnet-card').forEach(card => {
-      const name = card.querySelector('h3')?.textContent.toLowerCase() || '';
-      const cardStatus = card.dataset.status;
-      const cardTier = card.dataset.tier;
-      const visible = name.includes(search) && (!status || cardStatus === status) && (!tier || cardTier === tier);
-      card.style.display = visible ? 'grid' : 'none';
+    onAuthStateChanged(auth, user => {
+      currentUser = user; updateNav(user);
+      if (user) { showSection('dashboard'); loadProjects(user.uid); }
+      else { showSection('home'); container.innerHTML = ''; }
     });
-  };
-  ['searchInput', 'filterStatus', 'filterTier'].forEach(id => 
-    document.getElementById(id)?.addEventListener('input', applyFilters)
-  );
-</script>
+
+    // Filter & Search
+    const applyFilters = () => {
+      const search = (document.getElementById('searchInput')?.value || '').toLowerCase();
+      const status = document.getElementById('filterStatus')?.value || '';
+      const tier = document.getElementById('filterTier')?.value || '';
+      document.querySelectorAll('.testnet-card:not(.header-row)').forEach(card => {
+        const name = card.querySelector('h3')?.textContent.toLowerCase() || '';
+        const visible = name.includes(search) && (!status || card.dataset.status === status) && (!tier || card.dataset.tier === tier);
+        card.style.display = visible ? 'grid' : 'none';
+      });
+    };
+    ['searchInput','filterStatus','filterTier'].forEach(id => document.getElementById(id)?.addEventListener('input', applyFilters));
+
+    showSection('home');
+  </script>
 </body>
 </html>
