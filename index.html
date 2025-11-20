@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Testnet Hub | Kelola Tesnet Pribadi</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <i class="fas fa-satellite-dish"></i> TesNetID
+        </div>
+        <nav class="nav-menu" id="main-nav-menu">
+            <a href="#" class="active" data-target="home">Home</a>
+            <a href="#" data-target="dashboard">Dashboard</a>
+            <a href="#" class="cta-button" data-target="auth" id="auth-nav-link">Login / Register</a>
+        </nav>
+    </header>
+
+    <main id="app-content">
+        <section id="home-section" class="content-section active">
+            <div class="hero-section">
+                <h1>Buat **List Tesnetmu Sendiri** untuk Garapan Maksimal 🚀</h1>
+                <p>Atur, pantau, dan maksimalkan potensi airdrop dengan daftar testnet yang dikustomisasi sesuai strategi Anda. Kendalikan Garapan Anda!</p>
+                <a href="#" class="primary-btn" data-target="dashboard">Mulai Kelola Daftar Anda</a>
+            </div>
+            <div class="info-cards">
+                <div class="card"><i class="fas fa-list-check"></i><h3>Kustomisasi Prioritas</h3><p>Atur proyek berdasarkan potensi, kesulitan, dan alokasi waktu Anda.</p></div>
+                <div class="card"><i class="fas fa-lock-open"></i><h3>Kunci Potensi Airdrop</h3><p>Jangan lewatkan tugas penting dengan sistem pemantauan proyek pribadi.</p></div>
+                <div class="card"><i class="fas fa-chart-line"></i><h3>Pantauan Progress</h3><p>Tandai status garapan Anda (To Do, In Progress, Done) secara real-time.</p></div>
+            </div>
+        </section>
+
+        <section id="auth-section" class="content-section">
+            <div class="auth-container">
+                <div class="auth-box login-box" id="login-box-container">
+                    <h2>👋 Selamat Datang Kembali</h2>
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="log-email">Email</label>
+                            <input type="email" id="log-email" name="log-email" required placeholder="alamat@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="log-password">Password</label>
+                            <input type="password" id="log-password" name="log-password" required placeholder="Minimal 8 karakter">
+                        </div>
+                        <button type="submit" class="primary-btn">Login</button>
+                    </form>
+                    <p class="switch-auth">Belum punya akun? <a href="#" id="show-register">Register</a></p>
+                </div>
+                
+                <div class="auth-box register-box hidden" id="register-box-container">
+                    <h2>🚀 Buat Akun Baru</h2>
+                    <form id="register-form">
+                        <div class="form-group">
+                            <label for="reg-email">Email</label>
+                            <input type="email" id="reg-email" name="reg-email" required placeholder="alamat@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-password">Password</label>
+                            <input type="password" id="reg-password" name="reg-password" required placeholder="Minimal 8 karakter">
+                        </div>
+                         <div class="form-group">
+                            <label for="confirm-password">Konfirmasi Password</label>
+                            <input type="password" id="confirm-password" name="confirm-password" required placeholder="Ulangi password">
+                        </div>
+                        <button type="submit" class="primary-btn">Register</button>
+                    </form>
+                    <p class="switch-auth">Sudah punya akun? <a href="#" id="show-login">Login</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="dashboard-section" class="content-section">
+            <h2 class="dashboard-title"><i class="fas fa-tasks"></i> DASHBOARD TESTNET & AIRDROP TRACKER</h2>
+            <div class="search-filter-bar">
+                <input type="text" id="searchInput" placeholder="Cari proyek berdasarkan Nama/Tugas..." class="search-input">
+                <select id="filterSelect" class="filter-select">
+                    <option value="">Filter Status</option>
+                    <option value="Selesai">Selesai</option>
+                    <option value="Aktif">Aktif</option>
+                    <option value="Pending">Pending</option>
+                </select>
+                <select id="filterTier" class="filter-select">
+                    <option value="">Filter Tier</option>
+                    <option value="Tier 1">Tier 1</option>
+                    <option value="Tier 2">Tier 2</option>
+                    <option value="Tier 3">Tier 3</option>
+                </select>
+                <button id="addProjectBtn" class="primary-btn" onclick="openModal('add-modal')">Tambah Proyek Baru</button>
+            </div>
+            
+            <div class="testnet-list">
+                 <div class="testnet-card header-row" style="background-color: #111; font-weight: 700; padding: 10px 25px; border-bottom: 1px solid rgba(255, 255, 255, 0.2); border-radius: 6px 6px 0 0; margin-bottom: 0;">
+                    <span style="grid-column: 1 / 2;">NAMA PROYEK</span>
+                    <span style="grid-column: 2 / 3;">LINK DOKUMENTASI</span>
+                    <span style="grid-column: 3 / 4;">TIER & FUNDING</span>
+                    <span style="grid-column: 4 / 5; text-align: center;">TUGAS UTAMA</span>
+                    <span style="grid-column: 5 / 6; text-align: center;">SELESAI (✓)</span> 
+                    <span style="grid-column: 6 / 7; text-align: center;">AKSI</span>
+                </div>
+                <div id="testnet-list-container">
+                    <p style="text-align: center; color: var(--text-muted); padding: 50px;">Memuat data proyek Anda...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <div id="add-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('add-modal')">&times;</span>
+            <h2>Tambah Proyek Testnet Baru</h2>
+            <form id="addTestnetForm">
+                <div class="form-group">
+                    <label for="project-name">Nama Proyek</label>
+                    <input type="text" id="project-name" name="project-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="doc-link">Link Dokumentasi / Situs</label>
+                    <input type="url" id="doc-link" name="doc-link" required placeholder="https://docs.proyek.com">
+                </div>
+                <div class="form-group">
+                    <label for="tier">Tier Potensi Airdrop</label>
+                    <select id="tier" name="tier" required>
+                        <option value="Tier 1">Tier 1 (High)</option>
+                        <option value="Tier 2">Tier 2 (Medium)</option>
+                        <option value="Tier 3">Tier 3 (Low)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="main-task">Tugas Utama (Ringkasan)</label>
+                    <input type="text" id="main-task" name="main-task" required placeholder="Contoh: Node, Swap, Galxe Quest">
+                </div>
+                <button type="submit" class="primary-btn">Simpan Proyek</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('edit-modal')">&times;</span>
+            <h2>Edit Proyek Testnet</h2>
+            <form id="editTestnetForm">
+                <input type="hidden" id="edit-doc-id" name="doc-id">
+                <div class="form-group">
+                    <label for="edit-project-name">Nama Proyek</label>
+                    <input type="text" id="edit-project-name" name="project-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-doc-link">Link Dokumentasi / Situs</label>
+                    <input type="url" id="edit-doc-link" name="doc-link" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-tier">Tier Potensi Airdrop</label>
+                    <select id="edit-tier" name="tier" required>
+                        <option value="Tier 1">Tier 1 (High)</option>
+                        <option value="Tier 2">Tier 2 (Medium)</option>
+                        <option value="Tier 3">Tier 3 (Low)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="edit-main-task">Tugas Utama (Ringkasan)</label>
+                    <input type="text" id="edit-main-task" name="main-task" required>
+                </div>
+                <button type="submit" class="primary-btn">Update Proyek</button>
+                <button type="button" id="delete-btn" class="secondary-btn" style="background-color: #c0392b; color: #fff;">Hapus Proyek</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script> 
+    <script src="script.js"></script>
+    
+    <footer class="main-footer">
+        <p>&copy; 2025 Testnet Hub. Dibuat dengan 🔥 untuk Komunitas Kripto.</p>
+    </footer>
+</body>
+</html>

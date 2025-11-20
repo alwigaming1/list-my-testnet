@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💧 Daftar Faucet Testnet Penting</title>
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* Menggunakan ulang variabel dari index.html */
+        :root {
+            --bg-color: #f0f2f5;
+            --card-bg: #ffffff;
+            --text-color: #1c1c1e;
+            --primary-color: #1e88e5;
+            --hover-color: #1565c0;
+            --success-color: #43a047;
+            --border-color: #e0e0e0;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 30px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px; /* Sedikit lebih kecil agar fokus */
+            margin: auto;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        
+        /* Navigasi untuk kembali ke Tracker */
+        .back-link {
+            display: block;
+            margin-bottom: 25px;
+            font-size: 1em;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Faucet Grid dan Card --- */
+        .faucet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+        
+        .faucet-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-left: 5px solid var(--primary-color); /* Aksen warna primer */
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .faucet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .faucet-card h3 {
+            margin-top: 0;
+            color: var(--text-color);
+            font-size: 1.6em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .faucet-card .description {
+            color: #555;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            min-height: 40px; /* Menjaga konsistensi tinggi card */
+        }
+        
+        .faucet-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .faucet-links a {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: var(--primary-color); /* Tombol utama warna Biru */
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+        }
+        
+        .faucet-links a:hover {
+            background-color: var(--hover-color);
+            text-decoration: none;
+        }
+        
+        /* Gaya tombol sekunder (misal QuickNode) */
+        .faucet-links .secondary-link {
+            background-color: #6c757d; /* Abu-abu sekunder */
+        }
+        .faucet-links .secondary-link:hover {
+            background-color: #5a6268;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            .faucet-grid {
+                grid-template-columns: 1fr;
+            }
+            .faucet-card {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Kembali ke Testnet Tracker</a>
+        
+        <h1>💧 Kumpulan Faucet Testnet</h1>
+        <p style="text-align: center; color: #777; margin-bottom: 30px; font-size: 1.1em;">
+            Dapatkan token gratis yang diperlukan untuk membayar biaya gas dan interaksi di jaringan uji coba.
+        </p>
+
+        <div class="faucet-grid">
+            
+            <div class="faucet-card">
+                <h3>Ethereum Sepolia/Goerli ETH</h3>
+                <p class="description">Diperlukan sebagai gas fee utama untuk hampir semua L2 (Layer 2) dan ZK-Rollup.</p>
+                <div class="faucet-links">
+                    <a href="https://sepolia-faucet.pk910.de/" target="_blank">Klaim Sepolia (PK910)</a>
+                    <a href="https://faucet.quicknode.com/ethereum/sepolia" target="_blank" class="secondary-link">Klaim QuickNode</a>
+                </div>
+            </div>
+
+            <div class="faucet-card">
+                <h3>L2: Arbitrum & Optimism</h3>
+                <p class="description">Faucet resmi untuk interaksi di jaringan Layer 2 Arbitrum dan Optimism Testnet.</p>
+                <div class="faucet-links">
+                    <a href="https://faucet.arbitrum.io/" target="_blank">Arbitrum Faucet</a>
+                    <a href="https://app.optimism.io/faucet" target="_blank" class="secondary-link">Optimism Faucet</a>
+                </div>
+            </div>
+
+            <div class="faucet-card">
+                <h3>Polygon & BNB Chain Testnet</h3>
+                <p class="description">Dibutuhkan untuk dApps di Polygon PoS (Mumbai) dan BNB Smart Chain Testnet.</p>
+                <div class="faucet-links">
+                    <a href="https://faucet.polygon.technology/" target="_blank">Polygon (Mumbai)</a>
+                    <a href="https://testnet.bnbchain.org/faucet-4" target="_blank" class="secondary-link">BNB Chain</a>
+                </div>
+            </div>
+            
+            <div class="faucet-card">
+                <h3>Solana & Avalanche Fuji</h3>
+                <p class="description">Untuk berinteraksi dengan ekosistem yang berbasis Solana dan Avalanche Testnet.</p>
+                <div class="faucet-links">
+                    <a href="https://faucet.solana.com/" target="_blank">Solana Faucet</a>
+                    <a href="https://faucet.avax.network/" target="_blank" class="secondary-link">Avalanche (Fuji)</a>
+                </div>
+            </div>
+            
+            <div class="faucet-card">
+                <h3>ZK-Rollup & Bridge (Scroll)</h3>
+                <p class="description">Untuk mendapatkan token di jaringan ZK-Rollup. Biasanya melalui Bridge resmi.</p>
+                <div class="faucet-links">
+                    <a href="https://scroll.io/bridge" target="_blank">Akses Scroll Bridge</a>
+                    <a href="https://bridge.testnet.polygon.technology/" target="_blank" class="secondary-link">Polygon zkEVM Bridge</a>
+                </div>
+            </div>
+            
+            <div class="faucet-card">
+                <h3>Sui & Jaringan Lain</h3>
+                <p class="description">Faucet untuk token testnet Sui. Seringkali klaim dilakukan melalui Discord.</p>
+                <div class="faucet-links">
+                    <a href="https://discord.com/invite/sui" target="_blank">Sui Discord Faucet</a>
+                    <a href="https://testnet.zetachain.com/faucet" target="_blank" class="secondary-link">ZetaChain Faucet</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

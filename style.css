@@ -1,0 +1,653 @@
+/* ========================================================= */
+/* 1. VARIABEL, RESET, DAN FONT (BASE STYLING) */
+/* ========================================================= */
+:root {
+    /* Palet Warna Simpel dan Elegan */
+    --primary-color: #007bff; /* Biru Laut yang Bersih */
+    --secondary-color: #17a2b8; /* Aksen Cyan/Teal */
+    --background-color: #121212; /* Latar Belakang Sangat Gelap */
+    --card-bg: #1e1e1e; /* Latar Belakang Kartu */
+    --card-bg-alt: #151515; /* Latar Belakang Kartu Alternatif (Zebra) */
+    --text-color: #e0e0e0; /* Teks Putih Lembut */
+    --text-muted: #a0a0a0; /* Teks Abu-abu Pudar */
+    --border-color: #2a2a2a; /* Warna Garis Pemisah */
+    --border-radius: 10px;
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.4);
+    --shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s, opacity 0.3s;
+}
+a:hover {
+    color: var(--secondary-color);
+    opacity: 0.9;
+}
+/* ========================================================= */
+/* 2. HEADER DAN NAVIGASI */
+/* ========================================================= */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(18, 18, 18, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+.logo i {
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+.nav-menu a {
+    margin-left: 20px;
+    font-weight: 500;
+    padding: 5px 0;
+    color: var(--text-muted);
+    position: relative;
+}
+.nav-menu a.active,
+.nav-menu a:hover:not(.cta-button) {
+    color: var(--text-color);
+}
+.nav-menu a:not(.cta-button)::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: var(--primary-color);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -5px;
+    transition: width 0.3s;
+}
+.nav-menu a.active::after,
+.nav-menu a:hover:not(.cta-button)::after {
+    width: 80%;
+}
+.cta-button {
+    background-color: var(--primary-color);
+    color: #ffffff !important;
+    padding: 8px 18px;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-weight: 600;
+    box-shadow: var(--shadow-light);
+}
+.cta-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+/* ========================================================= */
+/* 3. UTILITY DAN TOMBOL (Button Styling) */
+/* ========================================================= */
+.primary-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: var(--shadow-light);
+    font-size: 1rem;
+}
+.primary-btn:hover {
+    background-color: #138496;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(23, 162, 184, 0.4);
+}
+.secondary-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border: 1px solid var(--text-muted);
+    color: var(--text-muted);
+    border-radius: 6px;
+    margin-top: 15px;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+}
+.secondary-btn.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    background-color: #252525;
+    border: 1px solid #333;
+}
+/* ========================================================= */
+/* 4. MAIN CONTENT LAYOUT (Fungsi Container & Padding Fix) */
+/* ========================================================= */
+#app-content {
+    padding: 30px 3%;
+    flex-grow: 1;
+}
+.content-section {
+    max-width: 1600px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    display: none;
+}
+.content-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ========================================================= */
+/* 5. HOME SECTION (HERO & CARDS) - Disesuaikan untuk Modal Auth */
+/* ========================================================= */
+.hero-section {
+    text-align: center;
+    padding: 100px 0;
+    background: radial-gradient(circle at center, rgba(0, 123, 255, 0.1) 0%, transparent 65%);
+}
+.hero-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.hero-section h1 strong {
+    color: var(--primary-color);
+}
+.hero-section p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: var(--text-muted);
+}
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 40px 0;
+}
+.info-cards .card {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    text-align: left;
+    border-bottom: 3px solid var(--secondary-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.info-cards .card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-heavy);
+}
+.info-cards .card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: block;
+}
+.info-cards .card h3 {
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+}
+/* ========================================================= */
+/* 6. AUTH SECTION (LOGIN/REGISTER) & FORM STYLING UMUM */
+/* ========================================================= */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+.auth-box {
+    background-color: var(--card-bg);
+    padding: 45px;
+    border-radius: 20px;
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.8),
+        inset 0 0 10px rgba(255, 255, 255, 0.03);
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+.auth-box:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.9),
+        inset 0 0 15px rgba(255, 255, 255, 0.05);
+}
+.auth-box h2 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.form-group {
+    margin-bottom: 25px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+.form-group input,
+.form-group select { /* Tambahkan select untuk form modal */
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #333;
+    background-color: #0d0d0d;
+    color: var(--text-color);
+    border-radius: 10px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    /* Perbaikan select agar terlihat sama */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23a0a0a0" class="bi bi-caret-down-fill" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.617A.5.5 0 0 1 2.8 5h10.4a.5.5 0 0 1 .346.617l-4.796 5.523a.5.5 0 0 1-.772 0z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 30px;
+}
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(23, 162, 184, 0.3), inset 0 2px 5px rgba(0, 0, 0, 0.8);
+    background-color: #151515;
+}
+.auth-box .primary-btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px 25px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.5);
+    font-size: 1.1rem;
+}
+.auth-box .primary-btn:hover {
+    background: linear-gradient(90deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(23, 162, 184, 0.7);
+}
+.switch-auth {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+.switch-auth a {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.auth-box.hidden {
+    display: none !important;
+}
+
+/* ========================================================= */
+/* 7. DASHBOARD SECTION (LIST HORIZONTAL, LENGKAP) - DIRAPIKAN */
+/* ========================================================= */
+.dashboard-title {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-align: center;
+}
+/* --- BILAH SEARCH & FILTER --- */
+.search-filter-bar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+.search-input, .filter-select {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg-alt);
+    color: var(--text-color);
+    border-radius: 8px;
+    max-width: 300px; /* Diperkecil agar tombol Tambah muat */
+    font-size: 0.95rem;
+}
+.search-filter-bar .primary-btn {
+    flex-grow: 0;
+    min-width: 180px;
+}
+/* --- LIST CONTAINER UTAMA --- */
+.testnet-list {
+    display: block;
+    max-width: none;
+    margin: 0 auto;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+/* --- KARTU TESTNET DI TAMPILAN LIST HORIZONTAL --- */
+.testnet-card {
+    background-color: var(--card-bg);
+    padding: 18px 25px;
+    margin-bottom: 2px;
+    
+    /* PENTING: Penyesuaian Grid Terbaru (Tugas Utama diperlebar) */
+    /* Nama (1.8fr) | Link (1.1fr) | Metrik (0.9fr) | Tugas (1.5fr) | Ceklis (70px) | Edit (100px) */
+    grid-template-columns: 1.8fr 1.1fr 0.9fr 1.5fr 70px 100px; 
+    display: grid;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+/* Efek Zebra Striping */
+.testnet-card:nth-child(even) {
+    background-color: var(--card-bg-alt);
+}
+.testnet-card:hover {
+    background-color: #252525;
+}
+/* KONTEN YANG TERSEMBUNYI SAAT DI TAMPILAN LIST */
+.testnet-card .description,
+.testnet-card .tasks-list,
+.status {
+    display: none;
+}
+/* --- KOLOM: Nama Proyek (Kolom 1) --- */
+.card-header h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding-right: 20px;
+    border-right: 1px solid var(--border-color);
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.card-header h3 i {
+    color: var(--primary-color);
+    margin-right: 8px;
+}
+/* --- KOLOM: Link Testnet (Kolom 2) --- */
+.link-info {
+    padding: 0 20px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-right: 1px solid var(--border-color);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.link-info a {
+    color: var(--secondary-color);
+    font-weight: 500;
+    text-decoration: underline;
+}
+.link-info i {
+    margin-right: 5px;
+    font-size: 1em;
+}
+/* --- KOLOM: Metrics (Tier & Funding) (Kolom 3) --- */
+.metrics {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Diratakan ke kiri */
+    text-align: left;
+    gap: 5px;
+    padding: 0 20px;
+    border-right: 1px solid var(--border-color);
+    height: 100%;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+.metrics span {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+.metrics span i {
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+/* --- KOLOM: Tugas Utama (Kolom 4) --- */
+.task-summary {
+    padding: 0 20px;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    border-right: 1px solid var(--border-color);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-style: italic;
+    font-weight: 400;
+}
+/* --- KOLOM: Checkbox (Kolom 5) --- */
+.task-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid var(--border-color);
+    height: 100%;
+}
+.task-item input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    accent-color: var(--secondary-color);
+    cursor: pointer;
+}
+.task-item span {
+    display: none;
+}
+/* --- KOLOM: Tombol Edit (Kolom 6) --- */
+.testnet-card .secondary-btn {
+    margin-top: 0;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    border-radius: 6px;
+    justify-self: center;
+    border: none;
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    font-weight: 600;
+    display: block;
+    width: 80px;
+    box-shadow: 0 2px 5px rgba(23, 162, 184, 0.3);
+}
+.testnet-card .secondary-btn:hover {
+    background-color: #138496;
+    color: #fff;
+    transform: translateY(-1px);
+}
+.testnet-card .secondary-btn.disabled {
+    background-color: #333;
+    color: #888;
+    box-shadow: none;
+    transform: none;
+    cursor: default;
+}
+
+
+/* ========================================================= */
+/* 8. CSS UTAMA UNTUK MODAL (TAMBAH & EDIT) */
+/* ========================================================= */
+.modal {
+    display: none; /* Awalnya tersembunyi */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.85); 
+    padding-top: 50px;
+    animation: modalFadeIn 0.3s ease-out;
+}
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 5% auto;
+    padding: 45px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+    width: 90%;
+    max-width: 550px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.6rem;
+    color: var(--primary-color);
+}
+.close-btn {
+    color: var(--text-muted);
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    transition: color 0.3s;
+}
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--secondary-color);
+}
+/* Tombol Delete di Modal Edit */
+#editTestnetForm .secondary-btn {
+    background-color: #c0392b; 
+    color: #ffffff;
+    border: none;
+    margin-top: 10px;
+    padding: 12px 25px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+#editTestnetForm .secondary-btn:hover {
+    background-color: #e74c3c; 
+    transform: translateY(-2px);
+}
+
+
+/* ===================================== */
+/* 9. MEDIA QUERIES (Responsif) */
+/* ===================================== */
+@media (max-width: 1024px) {
+    /* Pada tablet, hilangkan Tugas Utama (Kolom 4) */
+    .testnet-card {
+        /* 5 Kolom: Nama (2.2fr) | Link (1.3fr) | Metrik (1fr) | Ceklis (70px) | Edit (100px) */
+        grid-template-columns: 2.2fr 1.3fr 1fr 70px 100px;
+        padding: 14px 15px;
+    }
+    .task-summary {
+        display: none !important; /* Hilangkan Tugas Utama */
+    }
+    .card-header h3, .link-info, .metrics {
+        border-right: 1px solid var(--border-color);
+        padding: 0 10px;
+    }
+    .testnet-card .secondary-btn {
+        border-right: none;
+    }
+}
+@media (max-width: 768px) {
+    .main-header { padding: 15px 5%; }
+    .search-filter-bar {
+        gap: 10px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-input, .filter-select, .search-filter-bar .primary-btn {
+        max-width: 100%;
+    }
+    .testnet-card {
+        /* Mobile Layout: Nama/Metrik | Ceklis/Aksi */
+        grid-template-columns: 1fr auto 90px;
+        grid-template-rows: auto auto;
+        gap: 0;
+        padding: 15px 15px;
+    }
+    .card-header h3 {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        border-right: none;
+        padding-right: 10px;
+        font-size: 1rem;
+    }
+    .metrics {
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-start;
+        font-size: 0.8rem;
+        padding: 0;
+        border-right: none;
+    }
+    .task-summary, .link-info {
+        display: none !important;
+    }
+    .task-item {
+        grid-row: 1 / 2;
+        grid-column: 2 / 3;
+        justify-self: center;
+        align-self: flex-start;
+        border-right: 1px solid var(--border-color);
+        padding: 0 10px;
+    }
+    .testnet-card .secondary-btn {
+        grid-row: 1 / span 2;
+        grid-column: 3 / 4;
+        justify-self: flex-end;
+        align-self: center;
+        padding: 8px 8px;
+        font-size: 0.75rem;
+        width: 70px;
+        border-right: none;
+    }
+}
