@@ -1,22 +1,22 @@
 /* ========================================================= */
-/* 1. ROOT VARIABLES & GLOBAL RESET                        */
+/* 1. ROOT VARIABLES & GLOBAL RESET                          */
 /* ========================================================= */
 
 :root {
     /* Palet Warna */
-    --primary-color:   #007bff;
-    --secondary-color: #17a2b8;
-    --background-color: #121212;
-    --card-bg:         #1e1e1e;
-    --card-bg-alt:     #151515;
-    --text-color:      #e0e0e0;
-    --text-muted:      #a0a0a0;
-    --border-color:    #2a2a2a;
+    --primary-color:     #007bff;
+    --secondary-color:   #17a2b8;
+    --background-color:  #121212;
+    --card-bg:           #1e1e1e;
+    --card-bg-alt:       #151515;
+    --text-color:        #e0e0e0;
+    --text-muted:         #a0a0a0;
+    --border-color:      #2a2a2a;
 
     /* Radius & Shadow */
-    --border-radius:   10px;
-    --shadow-light:    0 4px 15px rgba(0, 0, 0, 0.4);
-    --shadow-heavy:    0 8px 30px rgba(0, 0, 0, 0.6);
+    --border-radius:     10px;
+    --shadow-light:      0 4px 15px rgba(0, 0, 0, 0.4);
+    --shadow-heavy:      0 8px 30px rgba(0, 0, 0, 0.6);
 }
 
 *,
@@ -38,7 +38,7 @@ body {
 }
 
 /* ========================================================= */
-/* 2. TIPOGRAFI & LINK                                      */
+/* 2. TIPOGRAFI & LINK                                       */
 /* ========================================================= */
 
 a {
@@ -51,6 +51,11 @@ a:hover {
     color: var(--secondary-color);
     opacity: 0.9;
 }
+
+/* ========================================================= */
+/* 3. HEADER & NAVIGASI                                      */
+/* ========================================================= */
+
 .main-header {
     position: sticky;
     top: 0;
@@ -61,11 +66,10 @@ a:hover {
     padding: 20px 5%;
     background: rgba(18, 18, 18, 0.95);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    flex-wrap: wrap;                /* baru */
-    gap: 15px;                       /* baru */
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-/* Logo tetap */
 .logo {
     font-size: 1.6rem;
     font-weight: 700;
@@ -78,14 +82,12 @@ a:hover {
     color: var(--primary-color);
 }
 
-/* Nav utama */
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 20px;                       /* ganti margin-left jadi gap */
+    gap: 20px;
 }
 
-/* Link menu biasa */
 .nav-menu a {
     padding: 5px 0;
     color: var(--text-muted);
@@ -95,11 +97,11 @@ a:hover {
 }
 
 .nav-menu a.active,
-.nav-menu a:hover:not(.cta-button) {
+.nav-menu a:hover:not(.cta-button):not(.logout-btn) {
     color: var(--text-color);
 }
 
-.nav-menu a:not(.cta-button)::after {
+.nav-menu a:not(.cta-button):not(.logout-btn)::after {
     content: '';
     position: absolute;
     left: 50%;
@@ -112,29 +114,104 @@ a:hover {
 }
 
 .nav-menu a.active::after,
-.nav-menu a:hover:not(.cta-button)::after {
+.nav-menu a:hover:not(.cta-button):not(.logout-btn)::after {
     width: 80%;
 }
 
-/* Tombol CTA */
-.cta-button {
-    padding: 8px 18px;
-    background-color: var(--primary-color);
+/* Tombol CTA Login/Register (sebelum login) */
+.nav-menu .cta-button {
+    padding: 10px 24px !important;
+    background: linear-gradient(135deg, var(--primary-color), #0062cc);
     color: #ffffff !important;
     font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
     border-radius: 50px;
-    box-shadow: var(--shadow-light);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4),
+                0 0 20px rgba(0, 123, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.cta-button:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
+.nav-menu .cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    pointer-events: none;
 }
 
-/* Hamburger (hanya muncul di mobile) */
+.nav-menu .cta-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.nav-menu .cta-button:hover {
+    background: linear-gradient(135deg, #0062cc, var(--primary-color));
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.6),
+                0 0 30px rgba(0, 123, 255, 0.black4);
+}
+
+/* Tombol Logout (setelah login) */
+.nav-menu .logout-btn {
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4),
+                0 0 20px rgba(231, 76, 60, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-menu .logout-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.nav-menu .logout-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.nav-menu .logout-btn:hover {
+    background: linear-gradient(135deg, #c0392b, #e74c3c);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6),
+                0 0 30px rgba(231, 76, 60, 0.4);
+}
+
+.nav-menu .cta-button i,
+.nav-menu .logout-btn i {
+    margin-right: 8px;
+    font-size: 0.95em;
+}
+
+/* Hamburger Menu */
 .hamburger {
-    display: none;                   /* default hidden */
+    display: none;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
@@ -151,13 +228,12 @@ a:hover {
     transition: all 0.3s ease;
 }
 
-/* Active state hamburger jadi X */
 .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* ========================================================= */
-/* 4. UTILITY BUTTONS                                       */
+/* 4. UTILITY BUTTONS                                        */
 /* ========================================================= */
 
 .primary-btn {
@@ -207,7 +283,7 @@ a:hover {
 }
 
 /* ========================================================= */
-/* 5. LAYOUT UTAMA                                          */
+/* 5. LAYOUT UTAMA                                           */
 /* ========================================================= */
 
 #app-content {
@@ -231,69 +307,326 @@ a:hover {
 }
 
 /* ========================================================= */
-/* 6. HOME - HERO & INFO CARDS                              */
+/* 6. HOME – HERO SECTION (Super Clean & Modern 2025)       */
 /* ========================================================= */
 
+/* Variabel tambahan untuk Light Mode */
+:root {
+    /* Dark mode (default) */
+    --bg: #0d0d0d;
+    --card: #1a1a1a;
+    --text: #e0e0e0;
+    --text-soft: #aaaaaa;
+    --accent: #0066ff;
+    --accent2: #00d4ff;
+    --gradient: linear-gradient(135deg, #0066ff, #8a2be2, #00d4ff);
+}
+
+/* Light mode */
+[data-theme="light"] {
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --text-soft: #666666;
+    --accent: #0066ff;
+    --accent2: #0099cc;
+    --gradient: linear-gradient(135deg, #0066ff, #8a2be2);
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Hero Section – Minimalis & Sangat Cantik */
 .hero-section {
-    padding: 100px 0;
+    padding: 160px 5% 120px;
     text-align: center;
-    background: radial-gradient(circle at center, rgba(0, 123, 255, 0.1) 0%, transparent 65%);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg);
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(0, 102, 255, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .hero-section h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
-.hero-section h1 strong {
-    color: var(--primary-color);
+    font-size: clamp(3rem, 8vw, 5.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .hero-section p {
-    max-width: 700px;
-    margin: 0 auto 40px;
+    font-size: clamp(1.15rem, 3vw, 1.4rem);
+    max-width: 720px;
+    margin: 0 auto 48px;
+    color: var(--text-soft);
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+/* Tombol CTA Hero – Super Clean */
+.hero-cta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero-btn {
+    padding: 16px 36px;
     font-size: 1.1rem;
-    color: var(--text-muted);
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    min-width: 180px;
 }
 
-.info-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 40px 0;
+.hero-btn.primary {
+    background: var(--gradient);
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
 }
 
-.info-cards .card {
-    background-color: var(--card-bg);
-    padding: 25px;
-    border-radius: var(--border-radius);
-    border-bottom: 3px solid var(--secondary-color);
-    box-shadow: var(--shadow-light);
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.hero-btn.primary:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 102, 255, 0.4);
 }
 
-.info-cards .card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-heavy);
+.hero-btn.secondary {
+    background: transparent;
+    color: var(--text);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
 }
 
-.info-cards .card i {
-    display: block;
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 15px;
+[data-theme="light"] .hero-btn.secondary {
+    border-color: rgba(0, 0, 0, 0.12);
 }
 
-.info-cards .card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 8px;
+.hero-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-4px);
 }
 
 /* ========================================================= */
-/* 7. AUTHENTICATION (LOGIN / REGISTER)                     */
+/* INFO CARDS – VERSI SUPER CANTIK & PREMIUM 2025           */
+/* ========================================================= */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    padding: 100px 5% 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.info-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255,255,0.08);
+    padding: 52px 36px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 
+        0 8px 32px rgba(0,0,0,0.4),
+        inset 0 0 30px rgba(255,255,255,0.03);
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    padding: 2px;
+    background: linear-gradient(135deg, 
+        rgba(0,102,255,0.4), 
+        rgba(138,43,226,0.3), 
+        rgba(0,212,255,0.4));
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, 
+                  linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.info-card:hover::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0,102,255,0.15) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-20px) scale(1.03);
+    box-shadow: 
+        0 30px 80px rgba(0,102,255,0.25),
+        0 0 40px 100px rgba(138,43,226,0.15),
+        inset 0 0 40px rgba(255,255,255,0.08);
+}
+
+.info-card:hover::before {
+    opacity: 1;
+}
+
+.info-card:hover::after {
+    opacity: 1;
+}
+
+.info-card .icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 30px;
+    background: var(--gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: all 0.5s ease;
+}
+
+.info-card:hover .icon {
+    transform: scale(1.15) rotate(8deg);
+    box-shadow: 0 15px 40px rgba(0,102,255,0.5);
+}
+
+.info-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.info-card p {
+    color: var(--text-soft);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    opacity: 0.95;
+}
+
+/* Light mode adjustment untuk card */
+[data-theme="light"] .info-card {
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .info-card:hover {
+    box-shadow: 0 30px 80px rgba(0,102,255,0.15);
+}
+
+/* ========================================================= */
+/* DARK / LIGHT MODE TOGGLE (Cantik & Smooth)              */
+/* ========================================================= */
+
+.theme-toggle {
+    position: fixed;
+    top: 25px;
+    right: 5%;
+    z-index: 9999;
+}
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-label {
+    display: block;
+    width: 64px;
+    height: 34px;
+    background: #2d2d2d;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0 4px 10px rgba(0,0,0,0.4);
+    transition: all 0.4s ease;
+}
+
+[data-theme="light"] .toggle-label {
+    background: #e0e0e0;
+}
+
+.toggle-ball {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 26px;
+    height: 26px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.toggle-checkbox:checked + .toggle-label .toggle-ball {
+    transform: translateX(30px);
+}
+
+.toggle-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    transition: all 0.4s ease;
+}
+
+.moon {
+    left: 10px;
+    color: #f9d71c;
+    opacity: 1;
+}
+
+.sun {
+    right: 10px;
+    color: #ffb400;
+    opacity: 0;
+}
+
+.toggle-checkbox:checked + .toggle-label .moon { opacity: 0; }
+.toggle-checkbox:checked + .toggle-label .sun { opacity: 1; }
+
+/* ========================================================= */
+/* 7. AUTHENTICATION (Login / Register)                      */
 /* ========================================================= */
 
 .auth-container {
@@ -350,16 +683,16 @@ a:hover {
     width: 100%;
     padding: 14px 14px 14px 14px;
     padding-right: 30px;
-    background-color: #0d0d0d;
+    background-color: #0d0d0d0;
     color: var(--text-color);
     border: 1px solid #333;
     border-radius: 10px;
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    transition: all 0.3s ease;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23a0a0a0" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.617A.5.5 0 0 1 2.8 5h10.4a.5.5 0 0 1 .346.617l-4.796 5.523a.5.5 0 0 1-.772 0z"/></svg>');
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23a0a0a0' viewBox='0 0 16 16'><path d='M7.247 11.14 2.451 5.617A.5.5 0 0 1 2.8 5h10.4a.5.5 0 0 1 .346.617l-4.796 5.523a.5.5 0 0 1-.772 0z'/></svg>");
     background-repeat: no-repeat;
     background-position: right 15px center;
 }
@@ -369,9 +702,8 @@ a:hover {
     outline: none;
     border-color: var(--secondary-color);
     background-color: #151515;
-    box-shadow: 
-        0 0 0 3px rgba(23, 162, 184, 0.3),
-        inset 0 2px 5px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 0 3px rgba(23, 162, 184, 0.3),
+                inset 0 2px 5px rgba(0, 0, 0, 0.8);
 }
 
 .auth-box .primary-btn {
@@ -405,7 +737,7 @@ a:hover {
 .auth-box.hidden { display: none !important; }
 
 /* ========================================================= */
-/* 8. DASHBOARD - TITLE, SEARCH, LIST                       */
+/* 8. DASHBOARD – TITLE, SEARCH, LIST                           */
 /* ========================================================= */
 
 .dashboard-title {
@@ -416,7 +748,6 @@ a:hover {
     margin-bottom: 40px;
 }
 
-/* Search & Filter Bar */
 .search-filter-bar {
     display: flex;
     flex-wrap: wrap;
@@ -444,7 +775,7 @@ a:hover {
     min-width: 180px;
 }
 
-/* Testnet List - Horizontal Cards */
+/* Testnet List – Horizontal Scrollable Cards */
 .testnet-list {
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -467,12 +798,12 @@ a:hover {
     background-color: #252525;
 }
 
-/* Hide unused content in list view */
+/* Hide unused in list view */
 .testnet-card .description,
 .testnet-card .tasks-list,
 .status { display: none; }
 
-/* Kolom 1 - Nama Proyek */
+/* Kolom 1 – Nama Proyek */
 .card-header h3 {
     display: flex;
     align-items: center;
@@ -488,7 +819,7 @@ a:hover {
     color: var(--primary-color);
 }
 
-/* Kolom 2 - Link */
+/* Kolom 2 – Link */
 .link-info {
     display: flex;
     align-items: center;
@@ -510,7 +841,7 @@ a:hover {
 
 .link-info i { margin-right: 5px; }
 
-/* Kolom 3 - Metrics */
+/* Kolom 3 – Metrics */
 .metrics {
     display: flex;
     flex-direction: column;
@@ -522,17 +853,12 @@ a:hover {
     border-right: 1px solid var(--border-color);
 }
 
-.metrics span {
-    display: flex;
-    align-items: center;
-}
-
 .metrics span i {
     margin-right: 5px;
     color: var(--primary-color);
 }
 
-/* Kolom 4 - Tugas Utama */
+/* Kolom 4 – Tugas Utama */
 .task-summary {
     display: flex;
     align-items: center;
@@ -545,7 +871,7 @@ a:hover {
     border-right: 1px solid var(--border-color);
 }
 
-/* Kolom 5 - Checkbox */
+/* Kolom 5 – Checkbox */
 .task-item {
     display: flex;
     justify-content: center;
@@ -561,9 +887,7 @@ a:hover {
     cursor: pointer;
 }
 
-.task-item span { display: none; }
-
-/* Kolom 6 - Edit Button */
+/* Kolom 6 – Edit Button */
 .testnet-card .secondary-btn {
     width: 80px;
     margin: 0 auto;
@@ -593,7 +917,7 @@ a:hover {
 }
 
 /* ========================================================= */
-/* 9. MODAL (TAMBAH & EDIT)                                 */
+/* 9. MODAL (Tambah & Edit)                                  */
 /* ========================================================= */
 
 .modal {
@@ -644,14 +968,13 @@ a:hover {
 
 .close-btn:hover { color: var(--secondary-color); }
 
-/* Delete button di modal edit */
 #editTestnetForm .secondary-btn {
     margin-top: 10px;
     padding: 12px 25px;
     background-color: #c0392b;
     color: #ffffff;
     border: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 #editTestnetForm .secondary-btn:hover {
@@ -660,12 +983,15 @@ a:hover {
 }
 
 /* ========================================================= */
-/* RESPONSIVE MOBILE ≤768px — TETAP HORIZONTAL + SCROLL     */
+/* 10. RESPONSIVE                                            */
 /* ========================================================= */
+
 @media (max-width: 768px) {
     .main-header {
         padding: 15px 5%;
     }
+
+    .hamburger { display: flex; }
 
     .search-filter-bar {
         flex-direction: column;
@@ -679,94 +1005,44 @@ a:hover {
         max-width: 100%;
     }
 
-    /* ---------- WRAPPER SCROLL HORIZONTAL ---------- */
     .testnet-list {
-        overflow-x: auto;                     /* Aktifkan scroll horizontal */
-        -webkit-overflow-scrolling: touch;    /* Smooth di iOS */
-        border-radius: var(--border-radius);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
-    /* Tambahkan tabel-like wrapper biar ada header tetap (opsional) */
-    .testnet-list::before {
-        content: '';
-        display: block;
-        height: 1px;
-    }
-
-    /* ---------- CARD TETAP HORIZONTAL TAPI LEBIH RAPAT ---------- */
     .testnet-card {
-        min-width: 720px;                     /* Paksa lebar minimal supaya tidak pecah */
-        grid-template-columns: 2fr 1.4fr 1fr 1.4fr 80px 100px; /* Lebih seimbang */
+        min-width: 720px;
+        grid-template-columns: 2fr 1.4fr 1fr 1.4fr 80px 100px;
         padding: 16px 12px;
-        gap: 0;
-        font-size: 0.92rem;                   /* Sedikit lebih kecil biar muat */
+        font-size: 0.92rem;
     }
 
-    /* Efek zebra tetap ada */
-    .testnet-card:nth-child(even) {
-        background-color: var(--card-bg-alt);
+    .hero-cta {
+        flex-direction: column;
+        gap: 18px;
     }
 
-    .testnet-card:hover {
-        background-color: #252525;
+    .hero-cta .primary-btn,
+    .hero-cta .secondary-outline {
+        width: 80%;
+        max-width: 300px;
     }
 
-    /* Kolom 1 - Nama Proyek */
-    .card-header h3 {
-        font-size: 0.98rem;
-        padding-right: 10px;
+    .info-grid {
+        gap: 30px;
+        padding: 80px 5% 60px;
     }
 
-    /* Kolom 2 - Link */
-    .link-info {
-        padding: 0 10px;
+    .nav-menu .cta-button,
+    .nav-menu .logout-btn {
+        padding: 9px 20px;
         font-size: 0.85rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-
-    /* Kolom 3 - Metrics */
-    .metrics {
-        padding: 0 10px;
-        font-size: 0.8rem;
-        gap: 4px;
-    }
-
-    /* Kolom 4 - Tugas Utama */
-    .task-summary {
-        padding: 0 10px;
-        font-size: 0.88rem;
-        text-align: center;
-    }
-
-    /* Kolom 5 - Checkbox */
-    .task-item {
-        padding: 0 8px;
-    }
-
-    .task-item input[type="checkbox"] {
-        width: 20px;
-        height: 20px;
-    }
-
-    /* Kolom 6 - Tombol Edit */
-    .testnet-card .secondary-btn {
-        width: 85px;
-        padding: 8px 6px;
-        font-size: 0.78rem;
-    }
-
-    /* Hilangkan border-right di kolom terakhir biar rapi */
-    .testnet-card > *:last-child {
-        border-right: none;
     }
 }
 
-/* Extra kecil untuk HP sangat sempit (iPhone SE, Galaxy Fold) */
 @media (max-width: 480px) {
     .testnet-card {
-        min-width: 680px;             /* Masih bisa di-scroll dengan nyaman */
+        min-width: 680px;
         grid-template-columns: 2.2fr 1.3fr 1fr 1.3fr 75px 90px;
         padding: 14px 10px;
         font-size: 0.88rem;
@@ -783,303 +1059,334 @@ a:hover {
         padding: 7px 4px;
     }
 }
-
 /* ========================================================= */
-/* PENYEIMBANGAN & PERCANTIKAN MENU AUTH (Login/Register & Logout) */
+/* FOOTER - ENHANCED MODERN DESIGN                          */
 /* ========================================================= */
 
-/* Tombol Login & Register di Home (sebelum login) */
-.nav-menu .cta-button {
-    padding: 10px 24px !important;
-    background: linear-gradient(135deg, var(--primary-color), #0062cc);
-    color: #ffffff !important;
-    font-weight: 600;
-    border-radius: 50px;
-    box-shadow: 
-        0 4px 15px rgba(0, 123, 255, 0.4),
-        0 0 20px rgba(0, 123, 255, 0.2);
+.main-footer {
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-bg-alt) 100%);
+    padding: 60px 5% 30px;
+    margin-top: 80px;
     position: relative;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Efek glow + ripple saat hover */
-.nav-menu .cta-button::before {
+.main-footer::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.25);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gradient);
+    opacity: 0.3;
+}
+
+.main-footer::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(0, 102, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(138, 43, 226, 0.05) 0%, transparent 50%);
     pointer-events: none;
 }
 
-.nav-menu .cta-button:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-.nav-menu .cta-button:hover {
-    background: linear-gradient(135deg, #0062cc, var(--primary-color));
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 
-        0 8px 25px rgba(0, 123, 255, 0.6),
-        0 0 30px rgba(0, 123, 255, 0.4);
-}
-
-/* Tombol Logout di Dashboard (setelah login) */
-.nav-menu .logout-btn {
-    padding: 10px 24px;
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-    color: #ffffff !important;
-    font-weight: 600;
-    border-radius: 50px;
-    box-shadow: 
-        0 4px 15px rgba(231, 76, 60, 0.4),
-        0 0 20px rgba(231, 76, 60, 0.2);
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
     position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
+    z-index: 2;
 }
 
-.nav-menu .logout-btn::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.25);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-.nav-menu .logout-btn:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-.nav-menu .logout-btn:hover {
-    background: linear-gradient(135deg, #c0392b, #e74c3c);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 
-        0 8px 25px rgba(231, 76, 60, 0.6),
-        0 0 30px rgba(231, 76, 60, 0.4);
-}
-
-/* Optional: Tambah ikon kecil di tombol biar lebih premium */
-.nav-menu .cta-button i,
-.nav-menu .logout-btn i {
-    margin-right: 8px;
-    font-size: 0.95em;
-}
-
-/* Responsif tetap rapi di mobile */
-@media (max-width: 768px) {
-    .nav-menu .cta-button,
-    .nav-menu .logout-btn {
-        padding: 9px 20px;
-        font-size: 0.85rem;
-    }
-}
-/* ========================================================= */
-/* HOME MODERN REDESIGN – Clean, Bold, Glassmorphism Touch */
-/* ========================================================= */
-
-.hero-section {
-    padding: 140px 5% 100px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    background: 
-        radial-gradient(circle at 20% 80%, rgba(0, 123, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(23, 162, 184, 0.15) 0%, transparent 50%),
-        var(--background-color);
-    min-height: 90vh;
+.footer-brand {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 20px;
+}
+
+.footer-logo {
+    display: flex;
     align-items: center;
-}
-
-/* Efek background bergerak halus (opsional, sangat kekinian) */
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: url('https://grainy-gradients.vercel.app/noise.svg');
-    opacity: 0.03;
-    pointer-events: none;
-    animation: noise 8s steps(10) infinite;
-}
-
-@keyframes noise {
-    0%, 100% { transform: translate(0,0); }
-    10% { transform: translate(-1%,-1%); }
-    20% { transform: translate(1%,1%); }
-    30% { transform: translate(-1%,1%); }
-    40% { transform: translate(1%,-1%); }
-    50% { transform: translate(-1%,0); }
-    60% { transform: translate(1%,0); }
-    70% { transform: translate(0,1%); }
-    80% { transform: translate(0,-1%); }
-    90% { transform: translate(-1%,-1%); }
-}
-
-.hero-section h1 {
-    font-size: clamp(3rem, 8vw, 5.5rem);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    letter-spacing: -1.5px;
-}
-
-.hero-section h1 strong {
-    background: linear-gradient(135deg, #00d4ff, #007bff, #9000ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.hero-section p {
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    max-width: 800px;
-    margin: 0 auto 45px;
-    color: var(--text-muted);
-    line-height: 1.7;
-    opacity: 0.9;
-}
-
-/* Tombol CTA besar di hero */
-.hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 30px;
-    margin-top: 20px;
-}
-
-.hero-cta .primary-btn {
-    padding: 16px 36px;
-    font-size: 1.1rem;
+    gap: 10px;
+    font-size: 1.8rem;
     font-weight: 700;
-    border-radius: 50px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    box-shadow: 0 10px 30px rgba(0, 123, 255, 0.4);
-    transition: all 0.4s ease;
-}
-
-.hero-cta .primary-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 123, 255, 0.5);
-}
-
-/* Tombol sekunder transparan (opsional) */
-.hero-cta .secondary-outline {
-    padding: 14px 32px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border-radius: 50px;
     color: var(--text-color);
-    font-weight: 600;
-    transition: all 0.4s ease;
+    margin-bottom: 10px;
 }
 
-.hero-cta .secondary-outline:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: var(--primary-color);
+.footer-logo i {
     color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.footer-description {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    max-width: 300px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.social-link:hover {
+    background: var(--primary-color);
+    color: white;
     transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
 }
 
-/* Info cards → ganti jadi 3 kolom besar, style glassmorphism + icon besar */
-.info-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    padding: 80px 5% 60px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.info-cards .card {
-    background: rgba(30, 30, 30, 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 40px 30px;
-    border-radius: 20px;
-    text-align: center;
-    transition: all 0.4s ease;
+.footer-links h3,
+.footer-contact h3,
+.footer-newsletter h3 {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
     position: relative;
-    overflow: hidden;
 }
 
-.info-cards .card::before {
+.footer-links h3::after,
+.footer-contact h3::after,
+.footer-newsletter h3::after {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(135deg, rgba(0,123,255,0.1), transparent);
-    opacity: 0;
-    transition: opacity 0.4s;
+    bottom: -8px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: var(--gradient);
+    border-radius: 2px;
 }
 
-.info-cards .card:hover::before {
+.footer-links ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-links a i {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.footer-links a:hover i {
     opacity: 1;
 }
 
-.info-cards .card:hover {
-    transform: translateY(-12px);
-    border-color: rgba(0, 123, 255, 0.3);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-}
-
-.info-cards .card i {
-    font-size: 3.5rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 20px;
-    display: block;
-}
-
-.info-cards .card h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.info-cards .card p {
+.footer-contact p {
     color: var(--text-muted);
-    line-height: 1.7;
-    font-size: 0.98rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
 }
 
-/* Responsive tetap mulus */
+.footer-contact i {
+    color: var(--primary-color);
+    width: 20px;
+    font-size: 1rem;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.newsletter-input {
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.newsletter-btn {
+    padding: 12px 20px;
+    background: var(--gradient);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 50px auto 0;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-bottom p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-bottom-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Light Mode Adjustments */
+[data-theme="light"] .main-footer {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .main-footer::before {
+    background: var(--gradient);
+    opacity: 0.2;
+}
+
+[data-theme="light"] .social-link {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--text-soft);
+}
+
+[data-theme="light"] .newsletter-input {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+}
+
+[data-theme="light"] .footer-bottom {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+    
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
 @media (max-width: 768px) {
-    .hero-cta {
+    .main-footer {
+        padding: 40px 5% 20px;
+        margin-top: 60px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-bottom {
         flex-direction: column;
-        gap: 18px;
+        text-align: center;
+        gap: 15px;
     }
     
-    .hero-cta .primary-btn,
-    .hero-cta .secondary-outline {
-        width: 80%;
-        max-width: 300px;
+    .footer-bottom-links {
+        justify-content: center;
     }
     
-    .info-cards {
-        padding: 60px 5% 40px;
-        gap: 20px;
+    .footer-social {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-logo {
+        font-size: 1.5rem;
+    }
+    
+    .footer-logo i {
+        font-size: 1.7rem;
+    }
+    
+    .footer-bottom-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
     }
 }
